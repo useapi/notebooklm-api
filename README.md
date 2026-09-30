@@ -4,6 +4,8 @@ Runnable Node.js, Python and bash examples for the [Gemini Notebook API](https:/
 
 Google offers no public API for NotebookLM. This API is third-party and uses the NotebookLM plan you already have.
 
+It runs unattended. Connect several Google accounts and each new job goes to one that is healthy and still has usage left, jobs are tracked server-side (poll or get a `replyUrl` webhook), and when every account is out of usage the `429` carries the reset time. Your code decides what to do with the load (wait, route to another account, slow down), so nobody has to watch NotebookLM's limits or start the next batch by hand.
+
 | Example | What it does | Tutorial | Tutorial date |
 |---|---|---|---|
 | [`podcast/`](./podcast) | Turn web pages and YouTube videos into a NotebookLM **Audio Overview** and download the `.m4a` | [How to automate NotebookLM](https://useapi.net/docs/articles/gemini-notebook-bash) | September 29, 2026 |
