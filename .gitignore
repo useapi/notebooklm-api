@@ -1,0 +1,17 @@
+node_modules
+.vscode
+.env
+
+# Downloaded results
+*.m4a
+*.mp4
+*.pdf
+*.pptx
+*.png
+output/
+gemini-notebook-demo/
+
+*.md
+!README.md
+*.sources.json
+__pycache__/
