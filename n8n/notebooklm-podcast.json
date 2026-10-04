@@ -1,0 +1,668 @@
+{
+  "name": "Turn web pages and YouTube videos into a NotebookLM podcast",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "NotebookLM podcast from your links",
+        "formDescription": "Paste web pages or YouTube videos, one per line. Runs on your own Gemini Notebook (NotebookLM) account through the useapi.net API.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Title",
+              "requiredField": true,
+              "placeholder": "Weekly AI news roundup"
+            },
+            {
+              "fieldLabel": "Links",
+              "fieldType": "textarea",
+              "requiredField": true,
+              "placeholder": "https://example.com/article\nhttps://www.youtube.com/watch?v=..."
+            },
+            {
+              "fieldLabel": "Format",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "deep_dive"
+                  },
+                  {
+                    "option": "brief"
+                  },
+                  {
+                    "option": "critique"
+                  },
+                  {
+                    "option": "debate"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Length",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "short"
+                  },
+                  {
+                    "option": "default"
+                  },
+                  {
+                    "option": "long"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Links form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        300
+      ],
+      "webhookId": "f1a2b3c4-5d6e-4f70-8a9b-0c1d2e3f4a5b"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "title",
+              "value": "={{ $json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "c2",
+              "name": "urls",
+              "value": "={{ $json.Links.split(/\\s+/).map(s => s.trim()).filter(s => /^https?:\\/\\//.test(s)).slice(0, 50) }}",
+              "type": "array"
+            },
+            {
+              "id": "c3",
+              "name": "format",
+              "value": "={{ $json.Format }}",
+              "type": "string"
+            },
+            {
+              "id": "c4",
+              "name": "length",
+              "value": "={{ $json.Length }}",
+              "type": "string"
+            },
+            {
+              "id": "c5",
+              "name": "language",
+              "value": "en",
+              "type": "string"
+            },
+            {
+              "id": "c6",
+              "name": "email",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.useapi.net/v1/gemini-notebook/notebooks",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 320000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify(Object.assign({ title: $('Settings').item.json.title }, $('Settings').item.json.email ? { email: $('Settings').item.json.email } : {})) }}"
+      },
+      "name": "Create notebook",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.useapi.net/v1/gemini-notebook/sources",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 320000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ notebook: $('Create notebook').item.json.notebook, urls: $('Settings').item.json.urls }) }}"
+      },
+      "name": "Add sources",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "name": "Wait 10s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        300
+      ],
+      "webhookId": "a2b3c4d5-6e7f-4a81-9b0c-1d2e3f4a5b6c"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.useapi.net/v1/gemini-notebook/notebooks/' + encodeURIComponent($('Create notebook').item.json.notebook) }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "name": "Check sources",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.sources.every(s => s.status === 'ready' || s.status === 'error') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Sources ready?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.useapi.net/v1/gemini-notebook/artifacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 320000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ notebook: $('Create notebook').item.json.notebook, type: 'audio', mode: 'async', format: $('Settings').item.json.format, length: $('Settings').item.json.length, language: $('Settings').item.json.language }) }}"
+      },
+      "name": "Generate Audio Overview",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "name": "Wait 20s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1760,
+        200
+      ],
+      "webhookId": "b3c4d5e6-7f80-4b92-8c1d-2e3f4a5b6c7d"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.useapi.net/v1/gemini-notebook/jobs/' + encodeURIComponent($('Generate Audio Overview').item.json.jobid) }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "name": "Check job",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1980,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "completed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "completed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "failed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "failed"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "still running"
+        }
+      },
+      "name": "Job status",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "result.files",
+        "options": {}
+      },
+      "name": "One item per file",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 300000,
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "name": "Download audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2640,
+        100
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "useapiHeaderAuth",
+          "name": "useapi.net API token"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "errorMessage": "={{ 'Audio Overview failed: ' + JSON.stringify($json.error ?? 'no reason given') }}"
+      },
+      "name": "Job failed",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Turn web pages and YouTube videos into a NotebookLM podcast\n\nPaste links, pick a format and a length, and get back a **NotebookLM Audio Overview**, the two-host podcast, as an audio file ready for the next node. It runs on your own **Gemini Notebook** (formerly NotebookLM) account through the [useapi.net Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1). Google offers no public NotebookLM API.\n\n### Who's it for\nNewsletter writers, educators, podcasters and content teams who want audio versions of articles, reports or videos on autopilot.\n\n### How it works\n1. A form collects a title, the links (web pages and YouTube, one per line), the podcast format and the length.\n2. The workflow creates a notebook and adds the links as sources.\n3. It waits until Google has processed every source.\n4. It generates the Audio Overview, polls the job until it is done (usually 3–5 minutes), and downloads the `.m4a`.\n\n### How to set up\n1. Create a useapi.net account and [API token](https://useapi.net/docs/start-here/setup-useapi), then connect your Google account with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook).\n2. Create a **Header Auth** credential. Name: `Authorization`. Value: `Bearer <your API token>`.\n3. Select the credential on the six HTTP Request nodes.\n4. Open the form URL (or click **Test workflow**) and submit.\n\n### Requirements\n- A useapi.net subscription ($15/month flat).\n- A Google account with access to Gemini Notebook.\n\n### How to customize\n- Change `language` in **Settings** (for example `es`, `pt_BR`, `zh_Hans`).\n- Swap the form for an RSS or Schedule trigger to turn every new article into an episode.\n- Add a Google Drive, Telegram or podcast-host node after **Download audio**.",
+        "width": 440,
+        "height": 890
+      },
+      "name": "Overview",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Settings\n`language` is the podcast language code. Leave `email` empty unless you connect several Google accounts and want a specific one.",
+        "width": 240,
+        "height": 200,
+        "color": 7
+      },
+      "name": "Settings note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Sources first\nGoogle fetches and indexes every link before it can talk about them, so the workflow checks the notebook every 10 seconds until each source is `ready` (or `error`, which it skips).",
+        "width": 760,
+        "height": 150,
+        "color": 7
+      },
+      "name": "Sources note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Audio Overview\nGeneration is asynchronous: start the job, wait, check, and loop until it is `completed` or `failed`. The finished job lists its files. The download link needs your token, so the last HTTP Request node fetches it with the same credential.",
+        "width": 1120,
+        "height": 150,
+        "color": 7
+      },
+      "name": "Audio note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Links form": {
+      "main": [
+        [
+          {
+            "node": "Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Settings": {
+      "main": [
+        [
+          {
+            "node": "Create notebook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create notebook": {
+      "main": [
+        [
+          {
+            "node": "Add sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add sources": {
+      "main": [
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 10s": {
+      "main": [
+        [
+          {
+            "node": "Check sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check sources": {
+      "main": [
+        [
+          {
+            "node": "Sources ready?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sources ready?": {
+      "main": [
+        [
+          {
+            "node": "Generate Audio Overview",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Audio Overview": {
+      "main": [
+        [
+          {
+            "node": "Wait 20s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 20s": {
+      "main": [
+        [
+          {
+            "node": "Check job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check job": {
+      "main": [
+        [
+          {
+            "node": "Job status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job status": {
+      "main": [
+        [
+          {
+            "node": "One item per file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Job failed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 20s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "One item per file": {
+      "main": [
+        [
+          {
+            "node": "Download audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
