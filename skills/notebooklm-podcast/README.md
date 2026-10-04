@@ -9,17 +9,17 @@ It calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v
 With the [skills CLI](https://github.com/vercel-labs/skills) (asks which agents to install for):
 
 ```bash
-npx skills add useapi/gemini-notebook-api --skill notebooklm-podcast
+npx skills add useapi/notebooklm-api --skill notebooklm-podcast
 # add -g to install for your user instead of the current project
 ```
 
 Or copy the folder yourself:
 
 ```bash
-git clone https://github.com/useapi/gemini-notebook-api.git
-cp -r gemini-notebook-api/skills/notebooklm-podcast ~/.claude/skills/     # Claude Code, every project
-cp -r gemini-notebook-api/skills/notebooklm-podcast .claude/skills/       # Claude Code, this project only
-cp -r gemini-notebook-api/skills/notebooklm-podcast ~/.codex/skills/      # Codex
+git clone https://github.com/useapi/notebooklm-api.git
+cp -r notebooklm-api/skills/notebooklm-podcast ~/.claude/skills/     # Claude Code, every project
+cp -r notebooklm-api/skills/notebooklm-podcast .claude/skills/       # Claude Code, this project only
+cp -r notebooklm-api/skills/notebooklm-podcast ~/.codex/skills/      # Codex
 ```
 
 Then give the agent your token in the environment it runs in:

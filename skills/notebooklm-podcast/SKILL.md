@@ -5,7 +5,7 @@ license: MIT
 compatibility: Needs bash, curl, jq and network access to api.useapi.net. Requires a useapi.net API token (USEAPI_TOKEN) and a Google account connected to useapi.net.
 metadata:
   author: useapi.net
-  homepage: https://github.com/useapi/gemini-notebook-api
+  homepage: https://github.com/useapi/notebooklm-api
 ---
 
 # NotebookLM podcast (Audio Overview) with the Gemini Notebook API

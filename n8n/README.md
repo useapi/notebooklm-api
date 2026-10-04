@@ -7,7 +7,7 @@ Two ready-to-import [n8n](https://n8n.io) workflows that turn links into a Noteb
 | [`notebooklm-podcast.json`](./notebooklm-podcast.json) | A form: paste web pages and YouTube links, pick a format and a length, get the `.m4a` back |
 | [`notebooklm-rss-podcast.json`](./notebooklm-rss-podcast.json) | Every Monday, the newest posts of an RSS feed become one podcast episode |
 
-📖 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into NotebookLM Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github&utm_medium=referral&utm_campaign=gemini-notebook-api)
+📖 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into NotebookLM Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github&utm_medium=referral&utm_campaign=notebooklm-api)
 
 The n8n.io listing for these templates is pending review. Until it is live, import the files from this folder.
 
@@ -30,7 +30,7 @@ Set `language` (for example `es`, `pt_BR`, `zh_Hans`) and, optionally, `email` i
 
 ## Setup
 
-1. Get a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api) and connect your Google account with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook).
+1. Get a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and connect your Google account with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook).
 2. In n8n, import the file (**Workflows → Import from File**).
 3. Create a **Header Auth** credential. Name: `Authorization`. Value: `Bearer <your API token>`.
 4. Select that credential on the six HTTP Request nodes: Create notebook, Add sources, Check sources, Generate Audio Overview, Check job and Download audio (the download link needs your token too).
@@ -44,4 +44,4 @@ A short brief takes about 3 to 10 minutes. Add a Google Drive, S3, Telegram or p
 - **Job failed**: the workflow stops with the error Google returned.
 - A source that ends as `error` (for example a YouTube video without captions) is skipped; the episode uses the rest.
 
-One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api) covers every useapi.net API. Generation runs on your own Google account's NotebookLM plan.
+One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) covers every useapi.net API. Generation runs on your own Google account's NotebookLM plan.
