@@ -13,5 +13,6 @@ gemini-notebook-demo/
 
 *.md
 !README.md
+!SKILL.md
 *.sources.json
 __pycache__/
