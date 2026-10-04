@@ -40,7 +40,7 @@ A short brief takes about 3 to 10 minutes. Add a Google Drive, S3, Telegram or p
 
 ## Errors
 
-- **HTTP 429** on Generate Audio Overview: the Google account is out of NotebookLM usage for now. The response carries `retryAt` when Google names the reset time. Connect more Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts) and leave `email` empty: new notebooks are spread across them.
+- **HTTP 429** on Generate Audio Overview: the Google account is out of NotebookLM usage for now. The response carries `retryAt` when Google names the reset time. Connect more Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts) and leave `email` empty: new notebooks then go to the least busy account, so the next run can land on one that still has usage.
 - **Job failed**: the workflow stops with the error Google returned.
 - A source that ends as `error` (for example a YouTube video without captions) is skipped; the episode uses the rest.
 
