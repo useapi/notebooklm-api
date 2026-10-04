@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Upload a local file as a source: PDF, Word, PowerPoint, EPUB, Markdown, text, CSV, audio, video or an image.
 # Usage: upload-file.sh <notebook> <path/to/file>
-# The file is the raw request body; the API refuses files over 200 MB.
+# The file is the raw request body; the API refuses files over 200 MB, and files over 100 MB are untested.
 source "$(dirname "$0")/_common.sh"
 NOTEBOOK="${1:?Usage: upload-file.sh <notebook> <file>}"
 FILE="${2:?Usage: upload-file.sh <notebook> <file>}"
 
-case "${FILE,,}" in
+case "$(printf '%s' "$FILE" | tr '[:upper:]' '[:lower:]')" in
   *.pdf) TYPE=application/pdf ;;
   *.docx) TYPE=application/vnd.openxmlformats-officedocument.wordprocessingml.document ;;
   *.pptx) TYPE=application/vnd.openxmlformats-officedocument.presentationml.presentation ;;
@@ -24,6 +24,12 @@ case "${FILE,,}" in
   *) TYPE=$(file -b --mime-type "$FILE") ;;
 esac
 
-curl -sS --fail-with-body --max-time 600 "${AUTH[@]}" -H "Content-Type: $TYPE" --data-binary "@$FILE" \
-  "$API/sources/upload?notebook=$(enc "$NOTEBOOK")&name=$(enc "$(basename "$FILE")")" |
-  jq -r '"\(.kind // "file")\t\(.status)\t\(.title)"'
+OUT=$(mktemp)
+trap 'rm -f "$OUT"' EXIT
+CODE=$(acurl -sS --max-time 600 -o "$OUT" -w '%{http_code}' -H "Content-Type: $TYPE" --data-binary "@$FILE" \
+  "$API/sources/upload?notebook=$(enc "$NOTEBOOK")&name=$(enc "$(basename "$FILE")")") || true
+if [ "${CODE:0:1}" != "2" ]; then
+  echo "POST /sources/upload -> HTTP ${CODE:-000}: $(cat "$OUT")" >&2
+  exit 1
+fi
+jq -r '"\(.kind // "file")\t\(.status)\t\(.title)"' "$OUT"

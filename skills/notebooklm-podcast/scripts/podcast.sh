@@ -14,15 +14,17 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-NOTEBOOK=$("$DIR/create-notebook.sh" "$TITLE")
+NOTEBOOK=$(bash "$DIR/create-notebook.sh" "$TITLE")
 log "notebook $NOTEBOOK"
-if [ ${#URLS[@]} -gt 0 ]; then "$DIR/add-sources.sh" "$NOTEBOOK" "${URLS[@]}" >&2; fi
-for f in "${FILES[@]}"; do "$DIR/upload-file.sh" "$NOTEBOOK" "$f" >&2; done
-"$DIR/wait-sources.sh" "$NOTEBOOK" >&2
-JOBID=$("$DIR/generate.sh" "$NOTEBOOK" audio "${OPTS[@]}")
-log "audio job $JOBID"
+if [ ${#URLS[@]} -gt 0 ]; then bash "$DIR/add-sources.sh" "$NOTEBOOK" "${URLS[@]}" >&2; fi
+if [ ${#FILES[@]} -gt 0 ]; then
+  for f in "${FILES[@]}"; do bash "$DIR/upload-file.sh" "$NOTEBOOK" "$f" >&2; done
+fi
+bash "$DIR/wait-sources.sh" "$NOTEBOOK" >&2
+# generate.sh logs the job id (and how to resume with it) on stderr
+JOBID=$(bash "$DIR/generate.sh" "$NOTEBOOK" audio ${OPTS[@]+"${OPTS[@]}"})
 JOB_FILE=$(mktemp)
-"$DIR/wait-job.sh" "$JOBID" > "$JOB_FILE"
+trap 'rm -f "$JOB_FILE"' EXIT
+bash "$DIR/wait-job.sh" "$JOBID" > "$JOB_FILE"
 jq -r '"\"\(.result.title)\", \(.result.duration) s"' "$JOB_FILE" >&2
-"$DIR/download.sh" "$JOB_FILE" "${OUT_DIR:-.}"
-rm -f "$JOB_FILE"
+bash "$DIR/download.sh" "$JOB_FILE" "${OUT_DIR:-.}"
