@@ -1,7 +1,7 @@
 {
   "name": "notebooklm-api",
   "version": "1.0.0",
-  "description": "Runnable Node.js and Python examples for the Gemini Notebook (NotebookLM) API by useapi.net: Audio Overview podcasts from URLs, Deep Research reports, and the full tutorial scripts.",
+  "description": "Runnable examples for the Gemini Notebook (NotebookLM) API by useapi.net in Node.js, Python and bash, plus a Colab notebook, n8n workflows and an agent skill: Audio Overview podcasts from URLs and files, Deep Research reports, and the full tutorial scripts.",
   "author": "useapi.net",
   "license": "MIT",
   "type": "module",
