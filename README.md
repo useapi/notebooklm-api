@@ -1,8 +1,10 @@
-# Gemini Notebook (NotebookLM) API examples (useapi.net)
+# NotebookLM API (Gemini Notebook API) examples
 
-Runnable Node.js, Python and bash examples for the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api), a REST API for Google's **Gemini Notebook** (formerly **NotebookLM**) that drives your own Google account. Create notebooks, add web pages, YouTube videos, Drive files and uploads as sources, chat with citations, run **Deep Research**, and generate **Audio Overviews** (the NotebookLM podcast), **Video Overviews**, slide decks, infographics, reports, quizzes, flashcards and mind maps.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/useapi/gemini-notebook-api/blob/main/notebooks/notebooklm_podcast.ipynb)
 
-Google offers no public API for NotebookLM. This API is third-party and uses the NotebookLM plan you already have.
+Runnable Node.js, Python and bash examples, an agent skill, a Colab notebook and n8n workflows for the **NotebookLM API**: the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api), a REST API that drives Google **NotebookLM** (now called **Gemini Notebook**) on your own Google account. Create notebooks, add web pages, YouTube videos, Drive files and uploads as sources, chat with citations, run **Deep Research**, and generate **Audio Overviews** (the NotebookLM podcast), **Video Overviews**, slide decks, infographics, reports, quizzes, flashcards and mind maps.
+
+Google offers no NotebookLM API for regular Google accounts. This API is third-party and uses the NotebookLM plan you already have.
 
 It runs unattended. Connect several Google accounts and each new job goes to one that is healthy and still has usage left, jobs are tracked server-side (poll or get a `replyUrl` webhook), and when every account is out of usage the `429` carries the reset time. Your code decides what to do with the load (wait, route to another account, slow down), so nobody has to watch NotebookLM's limits or start the next batch by hand.
 
@@ -11,6 +13,9 @@ It runs unattended. Connect several Google accounts and each new job goes to one
 | [`podcast/`](./podcast) | Turn web pages and YouTube videos into a NotebookLM **Audio Overview** and download the `.m4a` | [How to automate NotebookLM](https://useapi.net/docs/articles/gemini-notebook-bash) | September 29, 2026 |
 | [`deep-research/`](./deep-research) | Run **Deep Research** on a question and save the report as Markdown with its cited sources | [How to automate NotebookLM](https://useapi.net/docs/articles/gemini-notebook-bash) | September 29, 2026 |
 | [`tutorial-demo/`](./tutorial-demo) | The tutorial's two bash scripts: every step from creating a notebook to a Video Overview and a revised slide deck | [How to automate NotebookLM](https://useapi.net/docs/articles/gemini-notebook-bash) | September 29, 2026 |
+| [`skills/notebooklm-podcast/`](./skills/notebooklm-podcast) | An **agent skill** for Claude Code, Codex and other agents: links, text and files → Audio Overview `.m4a` or Video Overview `.mp4` (bash + curl) | [Skill README](./skills/notebooklm-podcast) | October 4, 2026 |
+| [`notebooks/`](./notebooks) | A **Google Colab** notebook: paste your token, list your links, play the podcast inline and download it | [Open in Colab](https://colab.research.google.com/github/useapi/gemini-notebook-api/blob/main/notebooks/notebooklm_podcast.ipynb) | October 4, 2026 |
+| [`n8n/`](./n8n) | Two **n8n** workflows: a links form → podcast, and an RSS feed → weekly podcast | [n8n README](./n8n) | October 4, 2026 |
 
 ## Quick start
 
@@ -26,11 +31,20 @@ python3 ./podcast.py <API_TOKEN> <EMAIL>
 
 Edit `prompts.json` in each folder to queue your own sources or questions. Every parameter is documented in the [API reference](https://useapi.net/docs/api-gemini-notebook-v1), and a [Postman collection](https://www.postman.com/useapinet/useapi-net/collection/29112081-40696e39-d128-417e-984b-fe1b97e7bb00) is available too.
 
+No terminal? [Open the Colab notebook](https://colab.research.google.com/github/useapi/gemini-notebook-api/blob/main/notebooks/notebooklm_podcast.ipynb) and run it in your browser. Using Claude Code, Codex or another coding agent? Install the skill and ask for a podcast in plain words:
+
+```bash
+npx skills add useapi/gemini-notebook-api --skill notebooklm-podcast
+```
+
 ## Common questions
 
-- **Does NotebookLM have an API?** Not a public one for the consumer product. This third-party REST API drives your own Gemini Notebook account instead.
+- **Does NotebookLM have an API?** Not for regular Google accounts. Google offers an API only for Gemini Notebook Enterprise (NotebookLM's new name since July 2026), which needs Enterprise licenses in a Google Cloud project and covers creating, listing, sharing and deleting notebooks, adding sources and generating Audio Overviews ([Google's docs](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)). This third-party REST API drives your own Google account instead, so it works on free and paid consumer plans and covers everything in the web app: chat with citations, Deep Research and every Studio output.
+- **Where do I get an API key / token?** Google doesn't issue a NotebookLM API key for regular accounts. You call this API with a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api) and connect your Google account once through the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook): sign in with Google, no cookies to copy and no Google Cloud project.
+- **How much does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api) to useapi.net, which covers every useapi.net API, not only this one. Generation runs on your own Google account's NotebookLM plan, the free one included, so there's no per-call or per-podcast charge from us.
+- **How many podcasts can I make?** Each Google account has NotebookLM's own usage budget, which refills every 5 hours, plus a weekly one (see [how much one account can generate](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api)). To make more, connect several Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts?utm_source=github.com&utm_medium=referral&utm_campaign=gemini-notebook-api): each subscription covers 3, up to 100 in total, and new jobs are load-balanced automatically to an account that is healthy and still has usage left.
 - **What can I generate?** Audio Overviews (deep dive, brief, critique or debate; three lengths; output language of your choice), Video Overviews, slide decks (PDF + PPTX), infographics, reports, quizzes, flashcards, mind maps and data tables. See the [artifacts endpoint](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts).
-- **What does it cost?** A flat $15/month to useapi.net plus the Google plan you already have. There's no per-call metering.
+- More answers: [Gemini Notebook API questions](https://useapi.net/docs/api-gemini-notebook-v1#questions).
 
 ## License
 
