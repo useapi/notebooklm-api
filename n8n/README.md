@@ -7,6 +7,8 @@ Two ready-to-import [n8n](https://n8n.io) workflows that turn links into a Noteb
 | [`notebooklm-podcast.json`](./notebooklm-podcast.json) | A form: paste web pages and YouTube links, pick a format and a length, get the `.m4a` back |
 | [`notebooklm-rss-podcast.json`](./notebooklm-rss-podcast.json) | Every Monday, the newest posts of an RSS feed become one podcast episode |
 
+📖 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into NotebookLM Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github&utm_medium=referral&utm_campaign=gemini-notebook-api)
+
 The n8n.io listing for these templates is pending review. Until it is live, import the files from this folder.
 
 ## Links to podcast (form)
