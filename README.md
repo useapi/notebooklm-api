@@ -15,7 +15,7 @@ It runs unattended. Connect several Google accounts and each new job goes to one
 | [`tutorial-demo/`](./tutorial-demo) | The tutorial's two bash scripts: every step from creating a notebook to a Video Overview and a revised slide deck | [How to automate NotebookLM](https://useapi.net/docs/articles/gemini-notebook-bash) | September 29, 2026 |
 | [`skills/notebooklm-podcast/`](./skills/notebooklm-podcast) | An **agent skill** for Claude Code, Codex and other agents: links, text and files → Audio Overview `.m4a` or Video Overview `.mp4` (bash + curl) | [Skill README](./skills/notebooklm-podcast) | October 4, 2026 |
 | [`notebooks/`](./notebooks) | A **Google Colab** notebook: paste your token, list your links, play the podcast inline and download it | [Open in Colab](https://colab.research.google.com/github/useapi/notebooklm-api/blob/main/notebooks/notebooklm_podcast.ipynb) | October 4, 2026 |
-| [`n8n/`](./n8n) | Two **n8n** workflows: a links form → podcast, and an RSS feed → weekly podcast | [n8n README](./n8n) | October 4, 2026 |
+| [`n8n/`](./n8n) | **n8n** workflows: the NotebookLM Podcast App (form + weekly RSS, in-browser player), plus minimal links → podcast and RSS → podcast versions | [n8n README](./n8n) | October 5, 2026 |
 
 ## Quick start
 

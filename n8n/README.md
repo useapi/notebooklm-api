@@ -1,15 +1,26 @@
 # n8n workflows for the NotebookLM (Gemini Notebook) API
 
-Two ready-to-import [n8n](https://n8n.io) workflows that turn links into a NotebookLM **Audio Overview** (the two-host podcast). Both use only core n8n nodes, with no community nodes. Tested on self-hosted n8n 2.41.
+Ready-to-import [n8n](https://n8n.io) workflows that turn links or an RSS feed into a NotebookLM **Audio Overview** (the two-host podcast). All of them use only core n8n nodes, with no community nodes. Tested on self-hosted n8n 2.41.
 
 | Workflow | What it does |
 |---|---|
+| [`notebooklm-podcast-app.json`](./notebooklm-podcast-app.json) | **The full app.** A form and a weekly RSS schedule share one pipeline: pick format, length, language and a focus prompt, watch a progress panel, then play the podcast in the browser and download it. Unreachable links are skipped with a reason, and quota or account problems show a page that says what to do |
 | [`notebooklm-podcast.json`](./notebooklm-podcast.json) | A form: paste web pages and YouTube links, pick a format and a length; the `.m4a` ends up as binary data in n8n for the next node (the browser gets a confirmation page, not the file) |
 | [`notebooklm-rss-podcast.json`](./notebooklm-rss-podcast.json) | Every Monday, the newest posts of an RSS feed become one podcast episode |
 
 📖 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into NotebookLM Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
-The n8n.io listing for these templates is pending review. Until it is live, import the files from this folder.
+The two smaller files are the minimal versions of the same pipeline, for building your own flow. The n8n.io listing for the app is pending review; until it is live, import the files from this folder.
+
+## Podcast App (form + weekly RSS)
+
+[`notebooklm-podcast-app.json`](./notebooklm-podcast-app.json) is the complete version: one workflow, two ways in.
+
+- **The form "Make a podcast"** takes a title, up to 50 links (web pages and YouTube videos), a format (deep dive, brief, critique, debate), a length, one of 20 languages, an optional focus prompt and an optional Google account email. While Google reads the links and makes the episode, the page shows what is happening and a running clock. A sources page lists what Google read and what it skipped and why, and the result page plays the podcast in the browser, with a download link.
+- **The weekly schedule** (Monday 7:00, off until you switch it on) reads the RSS feed in **Feed settings**, keeps the posts from the last `lookbackDays` days, and makes one episode. It ends at **Episode** with the `.m4a` as binary data, ready for a Google Drive, S3, Telegram or podcast-host node.
+- **When something goes wrong**, the form shows a page that says what to do: a link Google could not reach is skipped (the others still go in), an account that is out of NotebookLM usage shows when it resets, and an account that needs reconnecting links to the setup page. Temporary errors are retried.
+
+Setup: import the file, create one **Header Auth** credential (Name `Authorization`, Value `Bearer <your API token>`), select it on the eight HTTP Request nodes (Create notebook, Add sources, Add each link, Read notebook, Generate Audio Overview, Check job, Download podcast, Fetch audio), then publish (activate) the workflow and open the form URL. The **Podcast audio** webhook streams the finished episode to the result page using that credential, so your token never reaches the browser.
 
 ## Links to podcast (form)
 
