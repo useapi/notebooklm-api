@@ -2,7 +2,7 @@
 
 An [Agent Skill](https://agentskills.io) that lets Claude Code, Codex and other coding agents turn web pages, YouTube videos, pasted text and local files (PDF, Word, EPUB, audio...) into a NotebookLM **Audio Overview** podcast (`.m4a`) or a **Video Overview** (`.mp4`). Ask your agent "make a NotebookLM podcast from these three articles" and it runs the scripts in this folder.
 
-It calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill) by [useapi.net](https://useapi.net/?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that runs on your own Google NotebookLM account (NotebookLM is now called Gemini Notebook).
+It calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that runs on your own Google NotebookLM account (NotebookLM is now called Gemini Notebook).
 
 ## Install
 
@@ -31,8 +31,8 @@ export USEAPI_EMAIL=you@gmail.com       # optional: which connected Google accou
 
 You need:
 
-1. A useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill). One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill) covers every useapi.net API.
-2. A Google account connected with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill). Generation runs on that account's own NotebookLM plan, the free one included.
+1. A useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill). One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill) covers every useapi.net API.
+2. A Google account connected with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill). Generation runs on that account's own NotebookLM plan, the free one included.
 3. `bash`, `curl` and [`jq`](https://jqlang.org/download/).
 
 ## Use it without an agent
@@ -54,4 +54,4 @@ The scripts work on their own too:
 | `scripts/wait-job.sh` | Poll the job until it is done, print the final record |
 | `scripts/download.sh` | Download the finished `.m4a` / `.mp4` |
 
-[`SKILL.md`](./SKILL.md) is what the agent reads: the steps, every option and what to do on each error. The full API reference is at [useapi.net/docs/api-gemini-notebook-v1](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github&utm_medium=skill&utm_campaign=notebooklm-skill).
+[`SKILL.md`](./SKILL.md) is what the agent reads: the steps, every option and what to do on each error. The full API reference is at [useapi.net/docs/api-gemini-notebook-v1](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill).
