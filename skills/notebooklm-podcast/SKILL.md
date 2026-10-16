@@ -10,7 +10,7 @@ metadata:
 
 # NotebookLM (Gemini Notebook) podcast: Audio Overview with the useapi.net API
 
-These scripts call the [useapi.net NotebookLM API (Gemini Notebook API)](https://useapi.net/docs/api-gemini-notebook-v1), a third-party REST API that drives the user's own Google NotebookLM (Gemini Notebook) account. Every script is in `scripts/` next to this file. Run them with bash.
+These scripts call the [useapi.net NotebookLM API (Gemini Notebook API)](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that drives the user's own Google NotebookLM (Gemini Notebook) account. Every script is in `scripts/` next to this file. Run them with bash.
 
 ## Before you start
 

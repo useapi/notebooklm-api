@@ -25,9 +25,9 @@ Setup: import the file, create one **Header Auth** credential (Name `Authorizati
 ## Links to podcast (form)
 
 1. A form collects a title, the links (web pages and YouTube videos, one per line, up to 50), the podcast format (`deep_dive`, `brief`, `critique`, `debate`) and the length (`short`, `default`, `long`).
-2. The workflow creates a notebook with [POST /notebooks](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-notebooks) and adds the links with [POST /sources](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-sources).
+2. The workflow creates a notebook with [POST /notebooks](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-notebooks?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and adds the links with [POST /sources](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-sources?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 3. It checks the notebook every 10 seconds until Google has processed every source.
-4. It starts the Audio Overview with [POST /artifacts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts) (`type: "audio"`, async), polls [GET /jobs](https://useapi.net/docs/api-gemini-notebook-v1/get-gemini-notebook-jobs-jobid) every 20 seconds, and downloads the `.m4a` as binary data for the next node.
+4. It starts the Audio Overview with [POST /artifacts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) (`type: "audio"`, async), polls [GET /jobs](https://useapi.net/docs/api-gemini-notebook-v1/get-gemini-notebook-jobs-jobid?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) every 20 seconds, and downloads the `.m4a` as binary data for the next node.
 
 Set `language` (for example `es`, `pt_BR`, `zh_Hans`) and, optionally, `email` in the **Settings** node.
 
@@ -41,7 +41,7 @@ Set `language` (for example `es`, `pt_BR`, `zh_Hans`) and, optionally, `email` i
 
 ## Setup
 
-1. Get a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and connect your Google account with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook).
+1. Get a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and connect your Google account with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 2. In n8n, import the file (**Workflows → Import from File**).
 3. Create a **Header Auth** credential. Name: `Authorization`. Value: `Bearer <your API token>`.
 4. Select that credential on the six HTTP Request nodes: Create notebook, Add sources, Check sources, Generate Audio Overview, Check job and Download audio (the download link needs your token too).
@@ -51,7 +51,7 @@ A short brief takes about 3 to 10 minutes. Add a Google Drive, S3, Telegram or p
 
 ## Errors
 
-- **HTTP 429** on Generate Audio Overview: the Google account is out of NotebookLM usage for now. The response carries `retryAt` when Google names the reset time. Connect more Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts) and leave `email` empty: new notebooks then go to the least busy account, so the next run can land on one that still has usage.
+- **HTTP 429** on Generate Audio Overview: the Google account is out of NotebookLM usage for now. The response carries `retryAt` when Google names the reset time. Connect more Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and leave `email` empty: new notebooks then go to the least busy account, so the next run can land on one that still has usage.
 - **Job failed**: the workflow stops with the error Google returned.
 - A source that ends as `error` (for example a YouTube video without captions) is skipped; the episode uses the rest.
 

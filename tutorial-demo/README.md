@@ -1,6 +1,6 @@
 # The tutorial scripts
 
-📖 Full walkthrough: [How to Automate NotebookLM with the Gemini Notebook API](https://useapi.net/docs/articles/gemini-notebook-bash)
+📖 Full walkthrough: [How to Automate NotebookLM with the Gemini Notebook API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 The two bash scripts from the tutorial, unchanged. They need `curl` and `jq`, and save every response under a timestamped folder.
 
