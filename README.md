@@ -37,6 +37,38 @@ No terminal? [Open the Colab notebook](https://colab.research.google.com/github/
 npx skills add useapi/notebooklm-api --skill notebooklm-podcast
 ```
 
+## MCP server
+
+useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for NotebookLM (Gemini Notebook), so an AI assistant such as Claude Code, Cursor or VS Code Copilot can work with your notebooks on your own Google account. It has 56 tools: notebooks, sources (links, YouTube, files, Google Drive, Google Play Books), chat with citations, notes, labels, sharing, collections, Deep Research and every Studio output (Audio and Video Overviews, slides, infographics, reports, tables, quizzes, flashcards, mind maps). Nothing to install or run locally, and no cookies to copy: you connect the account once and we keep it signed in.
+
+- Endpoint: `https://api.useapi.net/v1/gemini-notebook/mcp`
+- Transport: Streamable HTTP
+- Authorization: your useapi.net API token in the `Authorization: Bearer …` header, and a Google account connected with the [NotebookLM setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+- Listed in the official MCP Registry as `net.useapi/gemini-notebook`
+
+Claude Code:
+
+```bash
+claude mcp add --transport http useapi-gemini-notebook https://api.useapi.net/v1/gemini-notebook/mcp --header "Authorization: Bearer YOUR_API_TOKEN"
+```
+
+Cursor (`~/.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "useapi-gemini-notebook": {
+      "url": "https://api.useapi.net/v1/gemini-notebook/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_TOKEN"
+      }
+    }
+  }
+}
+```
+
+VS Code, Windsurf and the full tool list: [NotebookLM MCP server docs](https://useapi.net/docs/api-gemini-notebook-v1/mcp?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). useapi.net is a third-party API, not affiliated with Google.
+
 ## Common questions
 
 - **Does NotebookLM have an API?** Not for regular Google accounts. Google offers an API only for Gemini Notebook Enterprise (NotebookLM's new name since July 2026), which needs Enterprise licenses in a Google Cloud project and covers creating, listing, sharing and deleting notebooks, adding sources and generating Audio Overviews ([Google's docs](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)). This third-party REST API drives your own Google account instead, so it works on free and paid consumer plans and covers everything in the web app: chat with citations, Deep Research and every Studio output.
