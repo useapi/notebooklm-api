@@ -39,7 +39,7 @@ npx skills add useapi/notebooklm-api --skill notebooklm-podcast
 
 ## MCP server
 
-useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for NotebookLM (Gemini Notebook), so an AI assistant such as Claude Code, Cursor or VS Code Copilot can work with your notebooks on your own Google account. It has 56 tools: notebooks, sources (links, YouTube, files, Google Drive, Google Play Books), chat with citations, notes, labels, sharing, collections, Deep Research and every Studio output (Audio and Video Overviews, slides, infographics, reports, tables, quizzes, flashcards, mind maps). Nothing to install or run locally, and no cookies to copy: you connect the account once and we keep it signed in.
+useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for NotebookLM (Gemini Notebook), so an AI assistant such as Claude Code, Cursor or VS Code Copilot can work with your notebooks on your own Google account. It has 57 tools: notebooks, sources (links, YouTube, files, Google Drive, Google Play Books), chat with citations, notes, labels, sharing, collections, Deep Research and every Studio output (Audio and Video Overviews, slides, infographics, reports, tables, quizzes, flashcards, mind maps). Nothing to install or run locally, and no cookies to copy: you connect the account once and we keep it signed in.
 
 - Endpoint: `https://api.useapi.net/v1/gemini-notebook/mcp`
 - Transport: Streamable HTTP
