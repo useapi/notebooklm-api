@@ -1,0 +1,39 @@
+version: 0.1.1
+type: plugin
+author: useapi
+name: notebooklm_useapi
+repo: https://github.com/useapi/notebooklm-api
+contact: support@useapi.net
+label:
+  en_US: NotebookLM (Gemini Notebook) by useapi.net
+  zh_Hans: NotebookLM（Gemini Notebook），由 useapi.net 提供
+  ja_JP: NotebookLM（Gemini Notebook）by useapi.net
+  pt_BR: NotebookLM (Gemini Notebook) por useapi.net
+description:
+  en_US: "Google NotebookLM (Gemini Notebook) in Dify: notebooks, sources, cited chat, Deep Research, Audio Overview podcasts, Video Overviews, slides, reports, quizzes and mind maps. Third-party API by useapi.net, not affiliated with Google. Needs a useapi.net subscription ($15/month) and your own Google account."
+  zh_Hans: "在 Dify 中使用 Google NotebookLM（Gemini Notebook）：笔记本、来源、带引用的聊天、Deep Research、音频概览播客、视频概览、演示文稿、报告、测验和思维导图。由 useapi.net 提供的第三方 API，与 Google 无关联。需要 useapi.net 订阅（每月 15 美元）和你自己的 Google 账号。"
+  ja_JP: "Dify で Google NotebookLM（Gemini Notebook）を利用：ノートブック、ソース、引用付きチャット、Deep Research、音声解説ポッドキャスト、動画解説、スライド、レポート、テスト、マインドマップ。useapi.net によるサードパーティ API で、Google とは提携していません。useapi.net のサブスクリプション（月額 15 ドル）とご自身の Google アカウントが必要です。"
+  pt_BR: "Google NotebookLM (Gemini Notebook) no Dify: notebooks, fontes, chat com citações, Deep Research, podcasts de Visão geral em áudio, Visões gerais em vídeo, slides, relatórios, testes e mapas mentais. API de terceiros da useapi.net, sem afiliação com o Google. Requer assinatura da useapi.net (US$ 15/mês) e sua própria conta Google."
+icon: icon.png
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/notebooklm_useapi.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.9.0
+created_at: 2026-10-18T00:00:00.000000000Z
+privacy: PRIVACY.md
+verified: false
+network:
+  domains:
+    - api.useapi.net

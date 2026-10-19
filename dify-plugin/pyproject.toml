@@ -1,0 +1,20 @@
+[project]
+name = "notebooklm-useapi-dify-plugin"
+version = "0.1.1"
+description = "NotebookLM (Gemini Notebook) tools for Dify, by useapi.net"
+requires-python = ">=3.12"
+dependencies = ["dify_plugin==0.10.2", "requests==2.34.2"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "SIM", "I"]
+ignore = ["E501"]  # long i18n strings in dev/specs.py and test tables
+
+[tool.ruff.lint.isort]
+known-first-party = ["useapi_notebook", "fakes", "specs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -16,6 +16,7 @@ It runs unattended. Connect several Google accounts and each new job goes to one
 | [`skills/notebooklm-podcast/`](./skills/notebooklm-podcast) | An **agent skill** for Claude Code, Codex and other agents: links, text and files → Audio Overview `.m4a` or Video Overview `.mp4` (bash + curl) | [Skill README](./skills/notebooklm-podcast) | October 4, 2026 |
 | [`notebooks/`](./notebooks) | A **Google Colab** notebook: paste your token, list your links, play the podcast inline and download it | [Open in Colab](https://colab.research.google.com/github/useapi/notebooklm-api/blob/main/notebooks/notebooklm_podcast.ipynb) | October 4, 2026 |
 | [`n8n/`](./n8n) | **n8n** workflows: the NotebookLM Podcast App (form + weekly RSS, in-browser player), plus minimal links → podcast and RSS → podcast versions | [n8n README](./n8n) | October 5, 2026 |
+| [`dify-plugin/`](./dify-plugin) | A **Dify** tool plugin: 56 NotebookLM tools for Dify workflows, chatflows and agents (notebooks, sources, cited chat, Deep Research, Audio and Video Overviews, slides, reports, quizzes, mind maps), with files returned to Dify and a UI in English, Chinese, Japanese and Portuguese | [Plugin README](./dify-plugin) | October 18, 2026 |
 
 ## Quick start
 
@@ -95,6 +96,16 @@ gemini extensions install https://github.com/useapi/notebooklm-api
 ```
 
 The install asks for your useapi.net API token and keeps it in the system keychain. Change it later with `gemini extensions config useapi-notebooklm`, and check the connection with `gemini mcp list`. The `notebooklm-podcast` skill's scripts read `USEAPI_TOKEN` from your shell, so export it as well if you use the skill.
+
+## Use in Dify
+
+The [`dify-plugin/`](./dify-plugin) folder is a [Dify](https://dify.ai) tool plugin, "NotebookLM (Gemini Notebook) by useapi.net", with 56 tools for workflows, chatflows and agents: notebooks, sources (links, YouTube, text, Google Drive, file uploads), chat with citations, Deep Research, and every Studio output. Generation tools wait for the job and return the Audio Overview `.m4a`, Video Overview `.mp4`, slides `.pdf`/`.pptx` or infographic `.png` as Dify files, plus variables (`notebook`, `jobid`, `answer`, `text`) for the next node.
+
+1. Install it from the Dify Marketplace (search "NotebookLM"), or download the `.difypkg` from [Releases](https://github.com/useapi/notebooklm-api/releases) and upload it under Plugins > Install plugin > Local package file.
+2. In Tools, authorize "NotebookLM (Gemini Notebook) by useapi.net" with your useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), and optionally a default Google account email.
+3. Add a tool to a workflow. For links to a podcast in one node, use "Generate Audio Overview (podcast)" with `urls` set to your links: it creates the notebook, waits, and returns the `.m4a`.
+
+The labels are in English, Simplified Chinese, Japanese and Brazilian Portuguese. Setup, every tool with its endpoint, and workflow and agent examples: [Dify plugin README](./dify-plugin).
 
 ## Common questions
 

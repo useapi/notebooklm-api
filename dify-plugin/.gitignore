@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.difypkg
+
+# The repo root ignores *.md and *.png; the plugin needs these files.
+!PRIVACY.md
+!CHANGELOG.md
+!readme/*.md
+!_assets/*.png
