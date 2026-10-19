@@ -1,0 +1,30 @@
+{
+  "name": "notebooklm",
+  "displayName": "NotebookLM / Gemini Notebook (useapi.net)",
+  "description": "Hosted NotebookLM (Gemini Notebook) MCP server by useapi.net (57 tools): create notebooks, add sources (links, YouTube, files, Google Drive), chat with citations, run Deep Research and make every Studio output: Audio and Video Overviews, slides, infographics, reports, quizzes, flashcards and mind maps, on your own Google account. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
+  "author": {
+    "name": "useapi.net",
+    "url": "https://useapi.net"
+  },
+  "homepage": "https://useapi.net/docs/api-gemini-notebook-v1/mcp",
+  "repository": "https://github.com/useapi/notebooklm-api",
+  "license": "MIT",
+  "keywords": [
+    "notebooklm",
+    "gemini-notebook",
+    "podcast",
+    "audio-overview",
+    "research",
+    "mcp",
+    "useapi"
+  ],
+  "mcpServers": {
+    "useapi-gemini-notebook": {
+      "type": "http",
+      "url": "https://api.useapi.net/v1/gemini-notebook/mcp",
+      "headers": {
+        "Authorization": "Bearer ${USEAPI_TOKEN}"
+      }
+    }
+  }
+}

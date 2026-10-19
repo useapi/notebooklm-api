@@ -69,12 +69,41 @@ Cursor (`~/.cursor/mcp.json`):
 
 VS Code, Windsurf and the full tool list: [NotebookLM MCP server docs](https://useapi.net/docs/api-gemini-notebook-v1/mcp?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). useapi.net is a third-party API, not affiliated with Google.
 
+## Use with Claude Code
+
+This repo is also a Claude Code plugin marketplace. The plugin adds the hosted NotebookLM (Gemini Notebook) MCP server and the `notebooklm-podcast` agent skill, and reads your token from the `USEAPI_TOKEN` environment variable, so set it before you start Claude Code:
+
+```bash
+export USEAPI_TOKEN=user:12345-...      # your useapi.net API token
+```
+
+Then, inside Claude Code:
+
+```
+/plugin marketplace add useapi/notebooklm-api
+/plugin install notebooklm@useapi-notebooklm
+```
+
+On Claude Code 2.1.275 or later, `/plugin install notebooklm --marketplace useapi/notebooklm-api` does both in one step. Run `/mcp` to check that `useapi-gemini-notebook` is connected.
+
+## Use with Gemini CLI
+
+This repo is also a Gemini CLI extension with the same MCP server and the `notebooklm-podcast` agent skill:
+
+```bash
+gemini extensions install https://github.com/useapi/notebooklm-api
+```
+
+The install asks for your useapi.net API token and keeps it in the system keychain. Change it later with `gemini extensions config useapi-notebooklm`, and check the connection with `gemini mcp list`. The `notebooklm-podcast` skill's scripts read `USEAPI_TOKEN` from your shell, so export it as well if you use the skill.
+
 ## Common questions
 
-- **Does NotebookLM have an API?** Not for regular Google accounts. Google offers an API only for Gemini Notebook Enterprise (NotebookLM's new name since July 2026), which needs Enterprise licenses in a Google Cloud project and covers creating, listing, sharing and deleting notebooks, adding sources and generating Audio Overviews ([Google's docs](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)). This third-party REST API drives your own Google account instead, so it works on free and paid consumer plans and covers everything in the web app: chat with citations, Deep Research and every Studio output.
-- **Where do I get an API key / token?** Google doesn't issue a NotebookLM API key for regular accounts. You call this API with a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and connect your Google account once through the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api): sign in with Google, no cookies to copy and no Google Cloud project.
+<!-- Official API figures in these answers, verified 2026-10-18: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks (Enterprise licenses only). -->
+
+- **Does NotebookLM have an API?** Yes, through the useapi.net NotebookLM API (Gemini Notebook API), a third-party REST API that drives your own Google account, so it works on free and paid consumer plans and covers everything in the web app: chat with citations, Deep Research and every Studio output. Google offers an API only for Gemini Notebook Enterprise (NotebookLM's new name since July 2026), which needs Enterprise licenses in a Google Cloud project and covers creating, listing, sharing and deleting notebooks, adding sources and generating Audio Overviews ([Google's docs](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)), so regular Google accounts can't use it.
+- **Where do I get an API key / token?** You call this API with a useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and connect your Google account once through the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api): sign in with Google, no cookies to copy and no Google Cloud project. Google doesn't issue a NotebookLM API key for regular accounts.
 - **Connecting an account by hand instead?** The [Google Account Setup](https://github.com/useapi/google-account-setup) scripts (Windows, macOS, Linux) open a clean, single-use Brave profile with device-bound sessions switched off, so the cookies you copy keep working.
-- **How much does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) to useapi.net, which covers every useapi.net API, not only this one. Generation runs on your own Google account's NotebookLM plan, the free one included, so there's no per-call or per-podcast charge from us.
+- **How much does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) to useapi.net, which covers every useapi.net API, not only this one. Generation runs on your own Google account's NotebookLM plan, the free one included, so there's no per-call or per-podcast charge from us. Google's own API needs Enterprise licenses in a Google Cloud project, so a regular account can't use it at any price.
 - **How many podcasts can I make?** Each Google account has NotebookLM's own usage budget, which refills every 5 hours, plus a weekly one (see [how much one account can generate](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)). To make more, connect several Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api): each subscription covers 3, up to 100 in total, and new jobs are load-balanced automatically to an account that is healthy and still has usage left.
 - **What can I generate?** Audio Overviews (deep dive, brief, critique or debate; three lengths; output language of your choice), Video Overviews, slide decks (PDF + PPTX), infographics, reports, quizzes, flashcards, mind maps and data tables. See the [artifacts endpoint](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 - More answers: [Gemini Notebook API questions](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api#questions).
