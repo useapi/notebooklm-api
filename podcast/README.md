@@ -1,6 +1,6 @@
 # Audio Overview podcast from URLs
 
-📖 Full walkthrough: [How to Automate NotebookLM with the Gemini Notebook API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+📖 Full walkthrough: [How to Automate Gemini Notebook (NotebookLM) with the API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 For every entry in `prompts.json`, the script creates a notebook, adds the URLs as sources (web pages and YouTube videos), waits until Google has processed them, generates an **Audio Overview** with [POST /artifacts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) (`type: "audio"`, async), polls [GET /jobs](https://useapi.net/docs/api-gemini-notebook-v1/get-gemini-notebook-jobs-jobid?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), and downloads the `.m4a`.
 

@@ -1,6 +1,6 @@
 # Deep Research report as Markdown
 
-📖 Full walkthrough: [How to Automate NotebookLM with the Gemini Notebook API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+📖 Full walkthrough: [How to Automate Gemini Notebook (NotebookLM) with the API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 For every question in `prompts.json`, the script creates a notebook, starts **Deep Research** with [POST /research](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-research?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) (`type: "deep"`, async), polls [GET /jobs](https://useapi.net/docs/api-gemini-notebook-v1/get-gemini-notebook-jobs-jobid?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), and saves the report (`.md`) plus the sources Google read (`.sources.json`, each marked `cited` or not). A run takes about 3–5 minutes.
 

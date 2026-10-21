@@ -2,17 +2,17 @@
 
 **Author:** [useapi](https://useapi.net/?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) · **Version:** 0.1.1 · **Type:** tool · **Source:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contact:** support@useapi.net
 
-Use Google **NotebookLM**, now called **Gemini Notebook**, from Dify workflows, chatflows and agents. Create notebooks, add web pages, YouTube videos, text, Google Drive files and uploads as sources, ask questions answered with citations, run Deep Research, and generate every Studio output: **Audio Overviews** (the NotebookLM podcast), **Video Overviews**, slide decks, infographics, reports, data tables, quizzes, flashcards and mind maps. Audio, video, slides and images come back as Dify files.
+Use Google **Gemini Notebook**, formerly **NotebookLM**, from Dify [workflows, chatflows](https://docs.dify.ai/en/cloud/use-dify/build/workflow-chatflow) and [agents](https://docs.dify.ai/en/cloud/use-dify/build/new-agent/overview). Create notebooks, add web pages, YouTube videos, text, Google Drive files and uploads as sources, ask questions answered with citations, run Deep Research, and generate every Studio output: **Audio Overviews** (the Gemini Notebook podcast), **Video Overviews**, slide decks, infographics, reports, data tables, quizzes, flashcards and mind maps. Audio, video, slides and images come back as Dify files.
 
-> This plugin calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) by useapi.net, a third-party API. It is not made by, affiliated with or endorsed by Google. It needs a useapi.net subscription ($15/month, covers every useapi.net API) and your own Google account. Generation runs on that Google account's NotebookLM plan, the free plan included, with no per-call charge from useapi.net.
+> This plugin calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) by useapi.net, a third-party API. It is not made by, affiliated with or endorsed by Google. It needs a useapi.net subscription ($15/month, covers every useapi.net API) and your own Google account. Generation runs on that Google account's Gemini Notebook plan, the free plan included, with no per-call charge from useapi.net.
 
-Google offers no NotebookLM API for regular Google accounts; its only one, the Gemini Notebook Enterprise API, needs Enterprise licenses in a Google Cloud project. This plugin works with a regular Google account.
+Google offers no Gemini Notebook API for regular Google accounts; its only one, the Gemini Notebook Enterprise API, needs Enterprise licenses in a Google Cloud project. This plugin works with a regular Google account.
 
 ## Setup
 
 1. **Get a useapi.net API token.** Subscribe and copy your token: [Setup useapi.net](https://useapi.net/docs/start-here/setup-useapi?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin).
 2. **Connect your Google account once.** Follow [Setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin): you sign in with Google, with no cookies to copy and no Google Cloud project. Each subscription covers 3 Google accounts (up to 100), and new jobs are spread across them.
-3. **Install the plugin** from the Dify Marketplace (search "NotebookLM"), or upload the `.difypkg` from the [GitHub releases](https://github.com/useapi/notebooklm-api/releases) under Plugins > Install plugin > Local package file.
+3. **Install the plugin** from the [Dify Marketplace](https://marketplace.dify.ai/plugins/useapi/notebooklm_useapi), or upload the `.difypkg` from the [GitHub releases](https://github.com/useapi/notebooklm-api/releases) under Plugins > Install plugin > Local package file.
 4. **Authorize it.** In Tools, open "NotebookLM (Gemini Notebook) by useapi.net", click Authorize and fill in:
 
 | Credential | Required | What it is |
@@ -160,7 +160,7 @@ No notebook is needed: the tool creates one for these links, waits for the sourc
 Create an Agent app, add the tools List notebooks, Get notebook, Add sources, Ask notebook, Generate Audio Overview and Get job status, and use instructions like:
 
 ```
-You help the user work with their NotebookLM (Gemini Notebook) notebooks.
+You help the user work with their Gemini Notebook (NotebookLM) notebooks.
 - Find the right notebook with List notebooks before asking questions.
 - Answer only from Ask notebook, and keep its citation numbers.
 - When the user shares links, add them with Add sources and wait until they are ready.
@@ -173,7 +173,7 @@ Then ask, for example: "Add https://en.wikipedia.org/wiki/Apollo_11 to my Apollo
 ## Waiting, limits and errors
 
 - **Timing.** Chat answers in 15 to 30 seconds (up to about 80 seconds on busy accounts). Discover sources takes about 15 seconds, Deep Research 3 to 5 minutes, an Audio Overview 3 to 10 minutes, a Video Overview 10 minutes or more. The plugin polls every 15 seconds and waits 120 seconds per call by default, so an agent can check a long job over a few turns with **Get job status** instead of blocking. Workflows can raise the wait to 540 seconds, below Dify's default 600-second plugin limit (`PLUGIN_MAX_EXECUTION_TIMEOUT`). A job keeps running after the call returns, and jobs are kept for 30 days.
-- **Usage.** Each Google account has NotebookLM's own usage budget, refilled every 5 hours plus a weekly budget. **Get account usage** shows what is left. Connect more Google accounts to generate more.
+- **Usage.** Each Google account has Gemini Notebook's own usage budget, refilled every 5 hours plus a weekly budget. **Get account usage** shows what is left. Connect more Google accounts to generate more.
 - **Errors** come back as one readable message, for example: an invalid token (401), an expired subscription (402), an id from another token (403), a missing notebook or an account that is not connected (404), sources still processing (409), the account busy or out of usage with its reset time (429), Google signing the account out (596, with the re-add link), and Google being temporarily unavailable (5xx).
 
 ## Privacy

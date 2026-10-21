@@ -1,6 +1,6 @@
 # The tutorial scripts
 
-📖 Full walkthrough: [How to Automate NotebookLM with the Gemini Notebook API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+📖 Full walkthrough: [How to Automate Gemini Notebook (NotebookLM) with the API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 The tutorial's outputs in a 20-second Short on YouTube: [NotebookLM has no API. Now it does: podcasts, video, slides from one REST call](https://youtube.com/shorts/ISOQAabo0b0)
 
