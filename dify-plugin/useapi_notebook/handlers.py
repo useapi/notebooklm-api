@@ -379,7 +379,7 @@ def ask_notebook(ctx: Ctx, p: dict[str, Any]) -> Iterator[Out]:
     data = ctx.post("chat", body, timeout=CHAT_TIMEOUT)
     answer = data.get("answer") or ""
     if not answer.strip():
-        raise UseapiError("NotebookLM (Gemini Notebook) returned an empty answer. Wait a minute and ask again.")
+        raise UseapiError("Gemini Notebook (NotebookLM) returned an empty answer. Wait a minute and ask again.")
     citations = data.get("citations") or []
     message = answer
     if citations:

@@ -13,7 +13,7 @@ description:
     zh_Hans: 列出 Google 账号中的笔记本，包括标题、来源数量和 ID。
     ja_JP: Google アカウントのノートブックを、タイトル・ソース数・ID とともに一覧表示します。
     pt_BR: Lista os notebooks das suas contas Google, com títulos, número de fontes e IDs.
-  llm: List NotebookLM (Gemini Notebook) notebooks with their ids, titles and source counts.
+  llm: List Gemini Notebook (NotebookLM) notebooks with their ids, titles and source counts.
 parameters:
 - name: email
   type: string

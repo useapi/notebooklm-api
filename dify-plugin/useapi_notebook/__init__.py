@@ -1,1 +1,1 @@
-"""NotebookLM (Gemini Notebook) tools for Dify, built on the useapi.net Gemini Notebook API."""
+"""Gemini Notebook (NotebookLM) tools for Dify, built on the useapi.net Gemini Notebook API."""

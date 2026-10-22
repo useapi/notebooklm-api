@@ -18,7 +18,7 @@ class NotebooklmUseapiProvider(ToolProvider):
             raise ToolProviderCredentialValidationError(str(e)) from e
         if not isinstance(accounts, dict) or not accounts:
             raise ToolProviderCredentialValidationError(
-                "The token works, but no Google account is connected to NotebookLM (Gemini Notebook) yet. "
+                "The token works, but no Google account is connected to Gemini Notebook (NotebookLM) yet. "
                 f"Connect one first: {SETUP_ACCOUNT_URL}"
             )
         if ctx.default_email and ctx.default_email not in accounts:

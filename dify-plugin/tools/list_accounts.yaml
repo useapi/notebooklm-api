@@ -13,7 +13,7 @@ description:
     zh_Hans: 列出已连接到 useapi.net 的 Google 账号，包括状态、方案和正在运行的任务。
     ja_JP: useapi.net に接続済みの Google アカウントを、状態・プラン・実行中のジョブとともに一覧表示します。
     pt_BR: Lista as contas Google conectadas ao useapi.net, com saúde, plano e jobs em execução.
-  llm: List the connected NotebookLM (Gemini Notebook) Google accounts with their health and running jobs.
+  llm: List the connected Gemini Notebook (NotebookLM) Google accounts with their health and running jobs.
 parameters: []
 output_schema:
   type: object

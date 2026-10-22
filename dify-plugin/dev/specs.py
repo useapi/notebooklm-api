@@ -445,7 +445,7 @@ tool(
         "useapi.net に接続済みの Google アカウントを、状態・プラン・実行中のジョブとともに一覧表示します。",
         "Lista as contas Google conectadas ao useapi.net, com saúde, plano e jobs em execução.",
     ),
-    "List the connected NotebookLM (Gemini Notebook) Google accounts with their health and running jobs.",
+    "List the connected Gemini Notebook (NotebookLM) Google accounts with their health and running jobs.",
     [],
     {"emails": {"type": "array", "items": {"type": "string"}}},
 )
@@ -514,7 +514,7 @@ tool(
         "Google アカウントのノートブックを、タイトル・ソース数・ID とともに一覧表示します。",
         "Lista os notebooks das suas contas Google, com títulos, número de fontes e IDs.",
     ),
-    "List NotebookLM (Gemini Notebook) notebooks with their ids, titles and source counts.",
+    "List Gemini Notebook (NotebookLM) notebooks with their ids, titles and source counts.",
     [EMAIL("the Google account to list")],
     {"notebook_ids": {"type": "array", "items": {"type": "string"}}},
 )
@@ -1254,10 +1254,10 @@ tool(
         "Gerar Visão geral em áudio (podcast)",
     ),
     gen_human(
-        "The NotebookLM podcast: two AI hosts discuss your sources. Returns an .m4a file.",
-        "NotebookLM 播客：两位 AI 主持人讨论你的来源，返回 .m4a 文件。",
-        "NotebookLM のポッドキャスト：2 人の AI ホストがソースについて語り合います。.m4a ファイルを返します。",
-        "O podcast do NotebookLM: dois apresentadores de IA discutem suas fontes. Retorna um arquivo .m4a.",
+        "The Gemini Notebook (NotebookLM) podcast: two AI hosts discuss your sources. Returns an .m4a file.",
+        "Gemini Notebook（NotebookLM）播客：两位 AI 主持人讨论你的来源，返回 .m4a 文件。",
+        "Gemini Notebook（NotebookLM）のポッドキャスト：2 人の AI ホストがソースについて語り合います。.m4a ファイルを返します。",
+        "O podcast do Gemini Notebook (NotebookLM): dois apresentadores de IA discutem suas fontes. Retorna um arquivo .m4a.",
     ),
     "Generate a NotebookLM Audio Overview (podcast) from a notebook, or from urls/text in one shot. Takes about 3 to 10 minutes; returns the .m4a file when finished, or the jobid to check later with Get job status.",
     [

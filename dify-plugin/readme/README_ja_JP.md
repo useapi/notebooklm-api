@@ -1,6 +1,6 @@
-# NotebookLM（Gemini Notebook）by useapi.net
+# Gemini Notebook（NotebookLM）by useapi.net
 
-**作者：** useapi · **バージョン：** 0.1.1 · **種類：** ツール · **ソース：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **連絡先：** support@useapi.net
+**作者：** useapi · **バージョン：** 0.1.2 · **種類：** ツール · **ソース：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **連絡先：** support@useapi.net
 
 Dify のワークフロー、チャットフロー、エージェントから Google Gemini Notebook（旧称 NotebookLM）を使えるプラグインです。ノートブックを作成し、ウェブページ、YouTube 動画、テキスト、Google ドライブのファイル、アップロードしたファイルをソースとして追加し、引用付きで質問に答えさせ、Deep Research を実行し、Studio のすべての出力を生成できます：音声解説（Gemini Notebook のポッドキャスト）、動画解説、スライド資料、インフォグラフィック、レポート、データ表、テスト、フラッシュカード、マインドマップ。音声・動画・スライド・画像は Dify のファイルとして返されます。
 
@@ -13,7 +13,7 @@ Google は通常の Google アカウント向けに Gemini Notebook API を提�
 1. **useapi.net の API トークンを取得**：サブスクリプションに登録してトークンをコピーします（[Setup useapi.net](https://useapi.net/docs/start-here/setup-useapi?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)）。
 2. **Google アカウントを一度だけ接続**：[Setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) の手順で Google にログインするだけです。Cookie のコピーや Google Cloud プロジェクトは不要です。1 つのサブスクリプションで Google アカウントを 3 つ（最大 100）接続でき、新しいジョブは自動で振り分けられます。
 3. **プラグインをインストール**：Dify マーケットプレイスで「NotebookLM」を検索するか、[GitHub releases](https://github.com/useapi/notebooklm-api/releases) の `.difypkg` を「プラグイン > プラグインをインストール > ローカルパッケージファイル」からアップロードします。
-4. **認証**：「ツール」で「NotebookLM（Gemini Notebook）by useapi.net」を開き、認証をクリックして入力します：
+4. **認証**：「ツール」で「Gemini Notebook（NotebookLM）by useapi.net」を開き、認証をクリックして入力します：
 
 | 認証情報 | 必須 | 内容 |
 |---|:-:|---|
@@ -47,7 +47,7 @@ Google は通常の Google アカウント向けに Gemini Notebook API を提�
 
 ```
 [開始：urls（段落）]
-   -> [NotebookLM > 音声解説を生成（ポッドキャスト）]  urls = {{開始.urls}}、形式 = ディープダイブ、長さ = 短め、言語 = ja
+   -> [Gemini Notebook > 音声解説を生成（ポッドキャスト）]  urls = {{開始.urls}}、形式 = ディープダイブ、長さ = 短め、言語 = ja
    -> [終了：podcast = {{音声解説を生成.files}}、summary = {{音声解説を生成.text}}]
 ```
 

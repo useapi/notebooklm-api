@@ -13,7 +13,7 @@ from urllib.parse import quote
 import requests
 
 BASE_URL = "https://api.useapi.net/v1/gemini-notebook"
-USER_AGENT = "dify-plugin-notebooklm-useapi/0.1.1"
+USER_AGENT = "dify-plugin-notebooklm-useapi/0.1.2"
 
 SETUP_TOKEN_URL = "https://useapi.net/docs/start-here/setup-useapi"
 SETUP_ACCOUNT_URL = "https://useapi.net/docs/start-here/setup-gemini-notebook"
@@ -90,7 +90,7 @@ def describe_error(status: int, body: Any) -> str:
         return f"Google could not do this (422).{detail}"
     if status == 429:
         when = f" Usage resets at {retry_at}." if retry_at else ""
-        return f"The Google account is busy or out of NotebookLM usage right now (429).{when} Connect more accounts or try later.{detail}"
+        return f"The Google account is busy or out of Gemini Notebook usage right now (429).{when} Connect more accounts or try later.{detail}"
     if status == 596:
         return (
             "Google signed this account out (596). Retry in about a minute; if it persists, "
@@ -99,7 +99,7 @@ def describe_error(status: int, body: Any) -> str:
     if status == 504:
         return f"Google did not answer in time (504). It may still finish: check before retrying anything that creates content.{detail}"
     if status >= 500:
-        return f"NotebookLM (Gemini Notebook) is temporarily unavailable ({status}). Retry in a few minutes.{detail}"
+        return f"Gemini Notebook (NotebookLM) is temporarily unavailable ({status}). Retry in a few minutes.{detail}"
     return f"Request failed ({status}).{detail}"
 
 

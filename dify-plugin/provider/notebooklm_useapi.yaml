@@ -3,15 +3,15 @@ identity:
   author: useapi
   name: notebooklm_useapi
   label:
-    en_US: NotebookLM (Gemini Notebook) by useapi.net
-    zh_Hans: NotebookLM（Gemini Notebook），由 useapi.net 提供
-    ja_JP: NotebookLM（Gemini Notebook）by useapi.net
-    pt_BR: NotebookLM (Gemini Notebook) por useapi.net
+    en_US: Gemini Notebook (NotebookLM) by useapi.net
+    zh_Hans: Gemini Notebook（NotebookLM），由 useapi.net 提供
+    ja_JP: Gemini Notebook（NotebookLM）by useapi.net
+    pt_BR: Gemini Notebook (NotebookLM) por useapi.net
   description:
-    en_US: 'Use Google NotebookLM (now Gemini Notebook) from Dify: notebooks, sources, cited chat, Deep Research, Audio and Video Overviews, slides, reports, quizzes, flashcards and mind maps. Third-party API by useapi.net, not affiliated with Google. Needs a useapi.net subscription ($15/month) and your own Google account.'
-    zh_Hans: 在 Dify 中使用 Google NotebookLM（现名 Gemini Notebook）：笔记本、来源、带引用的聊天、Deep Research、音频和视频概览、演示文稿、报告、测验、闪卡和思维导图。由 useapi.net 提供的第三方 API，与 Google 无关联。需要 useapi.net 订阅（每月 15 美元）和你自己的 Google 账号。
-    ja_JP: Dify から Google NotebookLM（現 Gemini Notebook）を利用：ノートブック、ソース、引用付きチャット、Deep Research、音声解説と動画解説、スライド、レポート、テスト、フラッシュカード、マインドマップ。useapi.net によるサードパーティ API で、Google とは提携していません。useapi.net のサブスクリプション（月額 15 ドル）とご自身の Google アカウントが必要です。
-    pt_BR: 'Use o Google NotebookLM (agora Gemini Notebook) no Dify: notebooks, fontes, chat com citações, Deep Research, Visões gerais em áudio e vídeo, slides, relatórios, testes, cartões de estudo e mapas mentais. API de terceiros da useapi.net, sem afiliação com o Google. Requer assinatura da useapi.net (US$ 15/mês) e sua própria conta Google.'
+    en_US: 'Use Google Gemini Notebook (formerly NotebookLM) from Dify: notebooks, sources, cited chat, Deep Research, Audio and Video Overviews, slides, reports, quizzes, flashcards and mind maps. Third-party API by useapi.net, not affiliated with Google. Needs a useapi.net subscription ($15/month) and your Google AI subscription, free plan included.'
+    zh_Hans: 在 Dify 中使用 Google Gemini Notebook（原名 NotebookLM）：笔记本、来源、带引用的聊天、Deep Research、音频和视频概览、演示文稿、报告、测验、闪卡和思维导图。由 useapi.net 提供的第三方 API，与 Google 无关联。需要 useapi.net 订阅（每月 15 美元）和你的 Google AI 订阅（含免费方案）。
+    ja_JP: Dify から Google Gemini Notebook（旧称 NotebookLM）を利用：ノートブック、ソース、引用付きチャット、Deep Research、音声解説と動画解説、スライド、レポート、テスト、フラッシュカード、マインドマップ。useapi.net によるサードパーティ API で、Google とは提携していません。useapi.net のサブスクリプション（月額 15 ドル）とお使いの Google AI サブスクリプション（無料プランも可）が必要です。
+    pt_BR: 'Use o Google Gemini Notebook (antes chamado NotebookLM) no Dify: notebooks, fontes, chat com citações, Deep Research, Visões gerais em áudio e vídeo, slides, relatórios, testes, cartões de estudo e mapas mentais. API de terceiros da useapi.net, sem afiliação com o Google. Requer assinatura da useapi.net (US$ 15/mês) e sua assinatura do Google AI, plano gratuito incluído.'
   icon: icon.png
   tags:
   - productivity

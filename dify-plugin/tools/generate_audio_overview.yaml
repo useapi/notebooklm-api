@@ -9,10 +9,10 @@ identity:
     pt_BR: Gerar Visão geral em áudio (podcast)
 description:
   human:
-    en_US: 'The NotebookLM podcast: two AI hosts discuss your sources. Returns an .m4a file. Give a notebook id, or URLs/text to create a notebook on the fly.'
-    zh_Hans: NotebookLM 播客：两位 AI 主持人讨论你的来源，返回 .m4a 文件。可提供笔记本 ID，或直接提供网址/文本以自动创建笔记本。
-    ja_JP: NotebookLM のポッドキャスト：2 人の AI ホストがソースについて語り合います。.m4a ファイルを返します。ノートブック ID を指定するか、URL／テキストを渡してその場でノートブックを作成できます。
-    pt_BR: 'O podcast do NotebookLM: dois apresentadores de IA discutem suas fontes. Retorna um arquivo .m4a. Informe um ID de notebook, ou URLs/texto para criar um notebook na hora.'
+    en_US: 'The Gemini Notebook (NotebookLM) podcast: two AI hosts discuss your sources. Returns an .m4a file. Give a notebook id, or URLs/text to create a notebook on the fly.'
+    zh_Hans: Gemini Notebook（NotebookLM）播客：两位 AI 主持人讨论你的来源，返回 .m4a 文件。可提供笔记本 ID，或直接提供网址/文本以自动创建笔记本。
+    ja_JP: Gemini Notebook（NotebookLM）のポッドキャスト：2 人の AI ホストがソースについて語り合います。.m4a ファイルを返します。ノートブック ID を指定するか、URL／テキストを渡してその場でノートブックを作成できます。
+    pt_BR: 'O podcast do Gemini Notebook (NotebookLM): dois apresentadores de IA discutem suas fontes. Retorna um arquivo .m4a. Informe um ID de notebook, ou URLs/texto para criar um notebook na hora.'
   llm: Generate a NotebookLM Audio Overview (podcast) from a notebook, or from urls/text in one shot. Takes about 3 to 10 minutes; returns the .m4a file when finished, or the jobid to check later with Get job status.
 parameters:
 - name: format

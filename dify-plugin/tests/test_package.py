@@ -30,7 +30,7 @@ def test_provider_loads_in_sdk():
 def test_manifest_fields():
     manifest = yaml.safe_load((ROOT / "manifest.yaml").read_text())
     assert manifest["author"] == "useapi" and manifest["name"] == "notebooklm_useapi"
-    assert manifest["version"] == "0.1.1"
+    assert manifest["version"] == "0.1.2"
     assert set(manifest["label"]) == LANGS and set(manifest["description"]) == LANGS
     for text in manifest["description"].values():
         assert "useapi.net" in text and "15" in text and "NotebookLM" in text and "Gemini Notebook" in text

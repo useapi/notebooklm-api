@@ -1,4 +1,4 @@
-"""Readable text for finished NotebookLM (Gemini Notebook) results, so an agent
+"""Readable text for finished Gemini Notebook (NotebookLM) results, so an agent
 or a workflow's next LLM node can use them without parsing JSON."""
 
 from __future__ import annotations

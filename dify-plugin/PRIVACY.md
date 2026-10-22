@@ -1,6 +1,6 @@
 # Privacy Policy
 
-This privacy policy covers the "NotebookLM (Gemini Notebook) by useapi.net" Dify plugin (`useapi/notebooklm_useapi`).
+This privacy policy covers the "Gemini Notebook (NotebookLM) by useapi.net" Dify plugin (`useapi/notebooklm_useapi`).
 
 ## What the plugin sends, and where
 

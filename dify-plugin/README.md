@@ -1,6 +1,6 @@
-# NotebookLM (Gemini Notebook) by useapi.net
+# Gemini Notebook (NotebookLM) by useapi.net
 
-**Author:** [useapi](https://useapi.net/?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) · **Version:** 0.1.1 · **Type:** tool · **Source:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contact:** support@useapi.net
+**Author:** [useapi](https://useapi.net/?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) · **Version:** 0.1.2 · **Type:** tool · **Source:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contact:** support@useapi.net
 
 Use Google Gemini Notebook, formerly NotebookLM, from Dify [workflows, chatflows](https://docs.dify.ai/en/cloud/use-dify/build/workflow-chatflow) and [agents](https://docs.dify.ai/en/cloud/use-dify/build/new-agent/overview). Create notebooks, add web pages, YouTube videos, text, Google Drive files and uploads as sources, ask questions answered with citations, run Deep Research, and generate every Studio output: Audio Overviews (the Gemini Notebook podcast), Video Overviews, slide decks, infographics, reports, data tables, quizzes, flashcards and mind maps. Audio, video, slides and images come back as Dify files.
 
@@ -13,7 +13,7 @@ Google offers no Gemini Notebook API for regular Google accounts; its only one, 
 1. **Get a useapi.net API token.** Subscribe and copy your token: [Setup useapi.net](https://useapi.net/docs/start-here/setup-useapi?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin).
 2. **Connect your Google account once.** Follow [Setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin): you sign in with Google, with no cookies to copy and no Google Cloud project. Each subscription covers 3 Google accounts (up to 100), and new jobs are spread across them.
 3. **Install the plugin** from the [Dify Marketplace](https://marketplace.dify.ai/plugins/useapi/notebooklm_useapi), or upload the `.difypkg` from the [GitHub releases](https://github.com/useapi/notebooklm-api/releases) under Plugins > Install plugin > Local package file.
-4. **Authorize it.** In Tools, open "NotebookLM (Gemini Notebook) by useapi.net", click Authorize and fill in:
+4. **Authorize it.** In Tools, open "Gemini Notebook (NotebookLM) by useapi.net", click Authorize and fill in:
 
 | Credential | Required | What it is |
 |---|:-:|---|
@@ -130,7 +130,7 @@ Tools also set **variables** you can reference in later nodes without a Code nod
 ```
 [Start: urls (paragraph)]
         |
-[NotebookLM > Generate Audio Overview (podcast)]
+[Gemini Notebook > Generate Audio Overview (podcast)]
     urls     = {{Start.urls}}
     format   = Deep dive        length = Short
     language = en               Wait for the result = on, Maximum wait = 540
@@ -198,7 +198,7 @@ The tool YAML and Python stubs are generated from `dev/specs.py`, the single sou
 python dev/gen_tools.py                 # writes tools/*.yaml, tools/*.py and the provider YAML
 python -m pytest                        # every tool against a mocked HTTP layer
 python dev/routing_check.py             # live 401 check of every read-only endpoint with a fake token
-dify plugin package . -o notebooklm_useapi-0.1.1.difypkg
+dify plugin package . -o notebooklm_useapi-0.1.2.difypkg
 ```
 
 `dev/` and `tests/` are left out of the package by `.difyignore`.

@@ -1,6 +1,6 @@
-# NotebookLM（Gemini Notebook），由 useapi.net 提供
+# Gemini Notebook（NotebookLM），由 useapi.net 提供
 
-**作者：** useapi · **版本：** 0.1.1 · **类型：** 工具 · **源代码：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **联系方式：** support@useapi.net
+**作者：** useapi · **版本：** 0.1.2 · **类型：** 工具 · **源代码：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **联系方式：** support@useapi.net
 
 在 Dify 的工作流、Chatflow 和 Agent 中使用 Google Gemini Notebook（原名 NotebookLM）。你可以创建笔记本，添加网页、YouTube 视频、文本、Google 云端硬盘文件和上传的文件作为来源，提出带引用的问题，运行 Deep Research，并生成所有 Studio 成果：音频概览（Gemini Notebook 播客）、视频概览、演示文稿、信息图、报告、数据表、测验、闪卡和思维导图。音频、视频、演示文稿和图片会以 Dify 文件的形式返回。
 
@@ -13,7 +13,7 @@ Google 没有为普通 Google 账号提供 Gemini Notebook API；它唯一的 Ge
 1. **获取 useapi.net API 令牌**：订阅后复制令牌，见 [Setup useapi.net](https://useapi.net/docs/start-here/setup-useapi?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)。
 2. **连接一次 Google 账号**：按照 [Setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) 操作，只需用 Google 登录，无需复制 Cookie，也无需 Google Cloud 项目。每个订阅可连接 3 个 Google 账号（最多 100 个），新任务会自动分配到各账号。
 3. **安装插件**：在 Dify 插件市场搜索 “NotebookLM”，或在“插件 > 安装插件 > 本地插件包”中上传 [GitHub releases](https://github.com/useapi/notebooklm-api/releases) 里的 `.difypkg`。
-4. **授权**：在“工具”中打开 “NotebookLM（Gemini Notebook），由 useapi.net 提供”，点击授权并填写：
+4. **授权**：在“工具”中打开 “Gemini Notebook（NotebookLM），由 useapi.net 提供”，点击授权并填写：
 
 | 凭据 | 必填 | 说明 |
 |---|:-:|---|
@@ -47,7 +47,7 @@ Google 没有为普通 Google 账号提供 Gemini Notebook API；它唯一的 Ge
 
 ```
 [开始：urls（段落）]
-   -> [NotebookLM > 生成音频概览（播客）]  urls = {{开始.urls}}，格式 = 深入探讨，长度 = 较短，语言 = zh_Hans
+   -> [Gemini Notebook > 生成音频概览（播客）]  urls = {{开始.urls}}，格式 = 深入探讨，长度 = 较短，语言 = zh_Hans
    -> [结束：播客 = {{生成音频概览.files}}，摘要 = {{生成音频概览.text}}]
 ```
 

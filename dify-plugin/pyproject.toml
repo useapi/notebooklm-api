@@ -1,7 +1,7 @@
 [project]
 name = "notebooklm-useapi-dify-plugin"
-version = "0.1.1"
-description = "NotebookLM (Gemini Notebook) tools for Dify, by useapi.net"
+version = "0.1.2"
+description = "Gemini Notebook (NotebookLM) tools for Dify, by useapi.net"
 requires-python = ">=3.12"
 dependencies = ["dify_plugin==0.10.2", "requests==2.34.2"]
 

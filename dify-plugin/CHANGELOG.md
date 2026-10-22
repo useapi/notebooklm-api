@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 (2026-10-22)
+
+Name and wording only. No functional changes.
+
+- Changed: the plugin is now called "Gemini Notebook (NotebookLM) by useapi.net", leading with Gemini Notebook after Google renamed NotebookLM. NotebookLM stays in the name, in all four languages.
+- Changed: the plugin descriptions say the plugin runs on your Google AI subscription (free plan included), the Audio Overview tool description and a few error messages use the new name order, and the README, PRIVACY.md and localized READMEs show the new label.
+- No breaking changes: the plugin id (`useapi/notebooklm_useapi`), tool names, parameters and output variables are unchanged.
+
 ## 0.1.1 (2026-10-19)
 
 Fixes for Dify agents, found in a Dify Cloud agent test.

@@ -1,6 +1,6 @@
-# NotebookLM (Gemini Notebook) por useapi.net
+# Gemini Notebook (NotebookLM) por useapi.net
 
-**Autor:** useapi · **Versão:** 0.1.1 · **Tipo:** ferramenta · **Código-fonte:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contato:** support@useapi.net
+**Autor:** useapi · **Versão:** 0.1.2 · **Tipo:** ferramenta · **Código-fonte:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contato:** support@useapi.net
 
 Use o Google Gemini Notebook, antes chamado NotebookLM, em workflows, chatflows e agentes do Dify. Crie notebooks, adicione páginas web, vídeos do YouTube, texto, arquivos do Google Drive e uploads como fontes, faça perguntas respondidas com citações, rode o Deep Research e gere todos os resultados do Studio: Visões gerais em áudio (o podcast do Gemini Notebook), Visões gerais em vídeo, apresentações de slides, infográficos, relatórios, tabelas de dados, testes, cartões de estudo e mapas mentais. Áudio, vídeo, slides e imagens voltam como arquivos do Dify.
 
@@ -13,7 +13,7 @@ O Google não oferece API do Gemini Notebook para contas Google comuns; a única
 1. **Pegue um token de API da useapi.net.** Assine e copie o token: [Setup useapi.net](https://useapi.net/docs/start-here/setup-useapi?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin).
 2. **Conecte sua conta Google uma vez.** Siga o [Setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin): basta entrar com o Google, sem copiar cookies e sem projeto do Google Cloud. Cada assinatura cobre 3 contas Google (até 100), e os novos jobs são distribuídos entre elas.
 3. **Instale o plugin** pelo Marketplace do Dify (procure "NotebookLM") ou envie o `.difypkg` dos [releases no GitHub](https://github.com/useapi/notebooklm-api/releases) em Plugins > Instalar plugin > Arquivo de pacote local.
-4. **Autorize.** Em Ferramentas, abra "NotebookLM (Gemini Notebook) por useapi.net", clique em Autorizar e preencha:
+4. **Autorize.** Em Ferramentas, abra "Gemini Notebook (NotebookLM) por useapi.net", clique em Autorizar e preencha:
 
 | Credencial | Obrigatória | O que é |
 |---|:-:|---|
@@ -47,7 +47,7 @@ As ferramentas de geração aceitam um ID de `notebook` ou `urls` e/ou `text` pa
 
 ```
 [Início: urls (parágrafo)]
-   -> [NotebookLM > Gerar Visão geral em áudio (podcast)]  urls = {{Início.urls}}, formato = Análise aprofundada, duração = Curto, idioma = pt_BR
+   -> [Gemini Notebook > Gerar Visão geral em áudio (podcast)]  urls = {{Início.urls}}, formato = Análise aprofundada, duração = Curto, idioma = pt_BR
    -> [Fim: podcast = {{Gerar Visão geral em áudio.files}}, resumo = {{Gerar Visão geral em áudio.text}}]
 ```
 
