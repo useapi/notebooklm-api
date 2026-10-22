@@ -2,11 +2,11 @@
 
 **作者：** useapi · **バージョン：** 0.1.1 · **種類：** ツール · **ソース：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **連絡先：** support@useapi.net
 
-Dify のワークフロー、チャットフロー、エージェントから Google **NotebookLM**（現在の名称は **Gemini Notebook**）を使えるプラグインです。ノートブックを作成し、ウェブページ、YouTube 動画、テキスト、Google ドライブのファイル、アップロードしたファイルをソースとして追加し、引用付きで質問に答えさせ、Deep Research を実行し、Studio のすべての出力を生成できます：**音声解説**（NotebookLM のポッドキャスト）、**動画解説**、スライド資料、インフォグラフィック、レポート、データ表、テスト、フラッシュカード、マインドマップ。音声・動画・スライド・画像は Dify のファイルとして返されます。
+Dify のワークフロー、チャットフロー、エージェントから Google Gemini Notebook（旧称 NotebookLM）を使えるプラグインです。ノートブックを作成し、ウェブページ、YouTube 動画、テキスト、Google ドライブのファイル、アップロードしたファイルをソースとして追加し、引用付きで質問に答えさせ、Deep Research を実行し、Studio のすべての出力を生成できます：音声解説（Gemini Notebook のポッドキャスト）、動画解説、スライド資料、インフォグラフィック、レポート、データ表、テスト、フラッシュカード、マインドマップ。音声・動画・スライド・画像は Dify のファイルとして返されます。
 
-> このプラグインは useapi.net の [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)（サードパーティ API）を呼び出します。Google が開発したものではなく、Google との提携や承認もありません。useapi.net のサブスクリプション（月額 15 ドル、useapi.net のすべての API が対象）とご自身の Google アカウントが必要です。生成はその Google アカウントの NotebookLM プラン（無料プランを含む）で実行され、useapi.net による呼び出しごとの課金はありません。
+> このプラグインは useapi.net の [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)（サードパーティ API）を呼び出します。Google が開発したものではなく、Google との提携や承認もありません。useapi.net のサブスクリプション（月額 15 ドル、useapi.net のすべての API が対象）と Google アカウントが必要です。生成はそのアカウントの Google AI サブスクリプション（無料プランを含む）で実行され、useapi.net による呼び出しごとの課金はありません。
 
-Google は通常の Google アカウント向けに NotebookLM API を提供していません。唯一の Gemini Notebook Enterprise API は、Google Cloud プロジェクトでの Enterprise ライセンスが必要です。このプラグインは通常の Google アカウントで動作します。
+Google は通常の Google アカウント向けに Gemini Notebook API を提供していません。唯一の Gemini Notebook Enterprise API は、Google Cloud プロジェクトでの Enterprise ライセンスが必要です。このプラグインは通常の Google アカウントで動作します。
 
 ## セットアップ
 
@@ -58,7 +58,7 @@ Google は通常の Google アカウント向けに NotebookLM API を提供し�
 ## 待機・制限・エラー
 
 - チャットは 15〜30 秒、ソースを探すは約 15 秒、Deep Research は 3〜5 分、音声解説は 3〜10 分、動画解説は 10 分以上かかります。プラグインは 15 秒ごとに状態を確認し、既定では 1 回の呼び出しで最大 120 秒待ちます（ワークフローでは最大 540 秒まで設定可能で、Dify 既定のプラグイン実行上限 600 秒未満）。
-- 各 Google アカウントには NotebookLM 独自の使用量枠（5 時間ごとに回復、さらに週ごとの枠）があります。「アカウントの使用量を取得」で残量を確認できます。
+- 各 Google アカウントには Gemini Notebook 独自の使用量枠（5 時間ごとに回復、さらに週ごとの枠）があります。「アカウントの使用量を取得」で残量を確認できます。
 - エラーは読みやすいメッセージで返されます。例：トークンが無効（401）、サブスクリプション切れ（402）、アカウント未接続（404）、ソース処理中（409）、アカウントが混雑中または使用量不足とリセット時刻（429）、Google によるログアウト（596）。
 
 ## プライバシー

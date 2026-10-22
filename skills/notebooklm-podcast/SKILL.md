@@ -1,6 +1,6 @@
 ---
 name: notebooklm-podcast
-description: Turn web pages, YouTube videos, pasted text or local files (PDF, Word, EPUB, audio...) into a NotebookLM (Gemini Notebook) Audio Overview podcast (.m4a) or a Video Overview (.mp4) through the useapi.net NotebookLM API (Gemini Notebook API); Google renamed NotebookLM to Gemini Notebook. Use when the user asks to make a NotebookLM or Gemini Notebook podcast, Audio Overview or Video Overview, turn articles or documents into a podcast, or automate NotebookLM / Gemini Notebook from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
+description: Turn web pages, YouTube videos, pasted text or local files (PDF, Word, EPUB, audio...) into a Gemini Notebook (NotebookLM) Audio Overview podcast (.m4a) or a Video Overview (.mp4) through the useapi.net Gemini Notebook API (NotebookLM API); Google renamed NotebookLM to Gemini Notebook. Use when the user asks to make a Gemini Notebook or NotebookLM podcast, Audio Overview or Video Overview, turn articles or documents into a podcast, or automate Gemini Notebook / NotebookLM from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
 license: MIT
 compatibility: Needs bash, curl, jq and network access to api.useapi.net. Requires a useapi.net API token (USEAPI_TOKEN) and a Google account connected to useapi.net.
 metadata:
@@ -8,9 +8,9 @@ metadata:
   homepage: https://github.com/useapi/notebooklm-api
 ---
 
-# NotebookLM (Gemini Notebook) podcast: Audio Overview with the useapi.net API
+# Gemini Notebook (NotebookLM) podcast: Audio Overview with the useapi.net API
 
-These scripts call the [useapi.net NotebookLM API (Gemini Notebook API)](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that drives the user's own Google NotebookLM (Gemini Notebook) account. Every script is in `scripts/` next to this file. Run them with bash.
+These scripts call the [useapi.net Gemini Notebook API (NotebookLM API)](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that runs Gemini Notebook (NotebookLM) on the user's Google account. Every script is in `scripts/` next to this file. Run them with bash.
 
 ## Before you start
 
@@ -36,7 +36,7 @@ Arguments that are existing local files are uploaded, everything else is added a
 
 A run takes longer than most agent tool timeouts. Run `podcast.sh` (and `wait-job.sh`) in the background (in Claude Code, `run_in_background`) or with a timeout of at least 15 minutes.
 
-If a run is interrupted after the generation started, do not run it again: that spends the user's NotebookLM usage twice. `generate.sh` logs the job id on stderr (`job job:...`). Resume with it:
+If a run is interrupted after the generation started, do not run it again: that spends the user's Gemini Notebook usage twice. `generate.sh` logs the job id on stderr (`job job:...`). Resume with it:
 
 ```bash
 scripts/wait-job.sh "<jobid>" > job.json && scripts/download.sh job.json
@@ -80,7 +80,7 @@ scripts/wait-job.sh "<jobid>" > job.json && scripts/download.sh job.json
 | `type` | `format` | Other options |
 |---|---|---|
 | `audio` | `deep_dive` (default), `brief`, `critique`, `debate` | `length`: `short`, `default`, `long`; `language` (e.g. `en`, `es`, `pt_BR`, `zh_Hans`); `instructions` |
-| `video` | `explainer` (default), `brief`, `cinematic`, `short` | `style` (`explainer` and `brief` only): `auto`, `classic`, `whiteboard`, `heritage`, `paper_craft`, `watercolor`, `anime`, `retro_print`, `kawaii`; `language`, `instructions` (`explainer`, `brief` and `short`). `cinematic` takes no `style`, `language` or `instructions` |
+| `video` | `explainer` (default), `brief`, `cinematic`, `short` | `style` (`explainer` and `brief` only): `auto`, `classic`, `whiteboard`, `heritage`, `paper_craft`, `watercolor`, `anime`, `retro_print`, `kawaii`; `language`, `instructions` (`explainer`, `brief` and `short`). `cinematic` takes no `style`, `language` or `instructions`, and needs Google AI Pro or Ultra |
 
 Pass options as `key=value` to `generate.sh` (or after `--` to `podcast.sh`), e.g. `instructions="Focus on the risks"`. Any other option returns `400` with the valid values. Full list: https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts
 
@@ -88,10 +88,10 @@ Pass options as `key=value` to `generate.sh` (or after `--` to `podcast.sh`), e.
 
 - `HTTP 401`: the token is wrong. `HTTP 404` from `create-notebook.sh`: `USEAPI_EMAIL` is not a connected account.
 - `HTTP 596`: the Google account needs to be reconnected (or, without `USEAPI_EMAIL`, no healthy account is left). Point the user to https://useapi.net/docs/start-here/setup-gemini-notebook.
-- `HTTP 429` from `generate.sh`: the notebook's Google account is busy (`maxJobs` jobs already running) or out of NotebookLM usage. `retryAt` in the body says when the usage resets. Retry then, or start over on another account: set `USEAPI_EMAIL` and run `podcast.sh` or `create-notebook.sh` again. Do not loop on it.
+- `HTTP 429` from `generate.sh`: the notebook's Google account is busy (`maxJobs` jobs already running) or out of Gemini Notebook usage. `retryAt` in the body says when the usage resets. Retry then, or start over on another account: set `USEAPI_EMAIL` and run `podcast.sh` or `create-notebook.sh` again. Do not loop on it.
 - `HTTP 409` from `generate.sh`: no source is `ready` yet. Run `wait-sources.sh` first.
 - A failed job prints its `error`. A job still running after 40 minutes is failed by the API with `timeout`.
 
 ## After it finishes
 
-Tell the user the file path, the episode title and its duration (`result.title` and `result.duration` in `job.json`). The notebook stays in their NotebookLM account, so they can open it there or generate more from it with `generate.sh "$NB" ...`.
+Tell the user the file path, the episode title and its duration (`result.title` and `result.duration` in `job.json`). The notebook stays in their Gemini Notebook (NotebookLM) account, so they can open it there or generate more from it with `generate.sh "$NB" ...`.

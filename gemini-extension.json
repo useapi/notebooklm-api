@@ -1,7 +1,7 @@
 {
   "name": "useapi-notebooklm",
   "version": "1.0.0",
-  "description": "Hosted NotebookLM (Gemini Notebook) MCP server by useapi.net (57 tools): create notebooks, add sources (links, YouTube, files, Google Drive), chat with citations, run Deep Research and make every Studio output: Audio and Video Overviews, slides, infographics, reports, quizzes, flashcards and mind maps, on your own Google account. Third-party paid service, not affiliated with Google.",
+  "description": "Hosted Gemini Notebook (NotebookLM) MCP server by useapi.net (57 tools): create notebooks, add sources (links, YouTube, files, Google Drive), chat with citations, run Deep Research and make every Studio output: Audio and Video Overviews, slides, infographics, reports, quizzes, flashcards and mind maps, on your Google AI subscription, the free plan included. Third-party paid service, not affiliated with Google.",
   "contextFileName": "GEMINI.md",
   "settings": [
     {

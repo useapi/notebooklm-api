@@ -1,6 +1,6 @@
 # The tutorial scripts
 
-📖 Full walkthrough: [How to Automate Gemini Notebook (NotebookLM) with the API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+Full walkthrough: [How to Automate Gemini Notebook (NotebookLM) with the API](https://useapi.net/docs/articles/gemini-notebook-bash?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 The tutorial's outputs in a 20-second Short on YouTube: [NotebookLM has no API. Now it does: podcasts, video, slides from one REST call](https://youtube.com/shorts/ISOQAabo0b0)
 
@@ -10,7 +10,7 @@ The two bash scripts from the tutorial, unchanged. They need `curl` and `jq`, an
 # steps 1–14: notebook, sources, upload, chat, note, discovery, Deep Research, quiz, Audio Overview, infographic, report, sharing
 USEAPI_TOKEN=user:12345-... EMAIL=you@gmail.com ./gemini-notebook-demo.sh [path/to/file.pdf]
 
-# steps 15–19: follow-up chat, note → source, flashcards, mind map, report, data table, Video Overview, slides + revise one slide
+# steps 15–19: follow-up chat, note → source, flashcards, mind map, report, data table, Video Overview, slides, revise one slide
 USEAPI_TOKEN=user:12345-... EMAIL=you@gmail.com NOTEBOOK=<id> CONVERSATION=<id> NOTE=<id> ./gemini-notebook-gallery.sh
 ```
 

@@ -2,11 +2,11 @@
 
 **作者：** useapi · **版本：** 0.1.1 · **类型：** 工具 · **源代码：** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **联系方式：** support@useapi.net
 
-在 Dify 的工作流、Chatflow 和 Agent 中使用 Google **NotebookLM**（现已更名为 **Gemini Notebook**）。你可以创建笔记本，添加网页、YouTube 视频、文本、Google 云端硬盘文件和上传的文件作为来源，提出带引用的问题，运行 Deep Research，并生成所有 Studio 成果：**音频概览**（NotebookLM 播客）、**视频概览**、演示文稿、信息图、报告、数据表、测验、闪卡和思维导图。音频、视频、演示文稿和图片会以 Dify 文件的形式返回。
+在 Dify 的工作流、Chatflow 和 Agent 中使用 Google Gemini Notebook（原名 NotebookLM）。你可以创建笔记本，添加网页、YouTube 视频、文本、Google 云端硬盘文件和上传的文件作为来源，提出带引用的问题，运行 Deep Research，并生成所有 Studio 成果：音频概览（Gemini Notebook 播客）、视频概览、演示文稿、信息图、报告、数据表、测验、闪卡和思维导图。音频、视频、演示文稿和图片会以 Dify 文件的形式返回。
 
-> 本插件调用 useapi.net 提供的 [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)，这是第三方 API，并非由 Google 开发，与 Google 无关联，也未获得 Google 认可。使用前需要 useapi.net 订阅（每月 15 美元，包含 useapi.net 的全部 API）以及你自己的 Google 账号。生成使用该 Google 账号自身的 NotebookLM 方案（包括免费方案），useapi.net 不按调用次数收费。
+> 本插件调用 useapi.net 提供的 [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin)，这是第三方 API，并非由 Google 开发，与 Google 无关联，也未获得 Google 认可。使用前需要 useapi.net 订阅（每月 15 美元，包含 useapi.net 的全部 API）以及一个 Google 账号。生成使用该账号的 Google AI 订阅（包括免费方案），useapi.net 不按调用次数收费。
 
-Google 没有为普通 Google 账号提供 NotebookLM API；它唯一的 Gemini Notebook Enterprise API 需要在 Google Cloud 项目中购买企业版许可。本插件使用普通 Google 账号即可。
+Google 没有为普通 Google 账号提供 Gemini Notebook API；它唯一的 Gemini Notebook Enterprise API 需要在 Google Cloud 项目中购买企业版许可。本插件使用普通 Google 账号即可。
 
 ## 设置
 
@@ -58,7 +58,7 @@ Google 没有为普通 Google 账号提供 NotebookLM API；它唯一的 Gemini 
 ## 等待、限额与错误
 
 - 聊天约 15 至 30 秒；发现来源约 15 秒；Deep Research 3 至 5 分钟；音频概览 3 至 10 分钟；视频概览 10 分钟以上。插件每 15 秒查询一次，默认每次调用最多等待 120 秒（工作流中最多可设 540 秒，低于 Dify 默认的 600 秒插件执行上限）。
-- 每个 Google 账号都有 NotebookLM 自己的用量（每 5 小时恢复一次，另有每周用量）。“获取账号用量”可查看剩余额度。
+- 每个 Google 账号都有 Gemini Notebook 自己的用量（每 5 小时恢复一次，另有每周用量）。“获取账号用量”可查看剩余额度。
 - 错误会以易读的信息返回，例如令牌无效（401）、订阅过期（402）、账号未连接（404）、来源仍在处理（409）、账号繁忙或用量不足及重置时间（429）、账号被 Google 登出（596）。
 
 ## 隐私

@@ -1,6 +1,6 @@
 {
   "name": "useapi-notebooklm",
-  "description": "useapi.net NotebookLM (Gemini Notebook) plugin for Claude Code: the hosted MCP server and agent skill.",
+  "description": "useapi.net Gemini Notebook (NotebookLM) plugin for Claude Code: the hosted MCP server and agent skill.",
   "owner": {
     "name": "useapi.net",
     "url": "https://useapi.net"
@@ -9,7 +9,7 @@
     {
       "name": "notebooklm",
       "source": "./",
-      "description": "Hosted NotebookLM (Gemini Notebook) MCP server by useapi.net (57 tools): create notebooks, add sources (links, YouTube, files, Google Drive), chat with citations, run Deep Research and make every Studio output: Audio and Video Overviews, slides, infographics, reports, quizzes, flashcards and mind maps, on your own Google account. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
+      "description": "Hosted Gemini Notebook (NotebookLM) MCP server by useapi.net (57 tools): create notebooks, add sources (links, YouTube, files, Google Drive), chat with citations, run Deep Research and make every Studio output: Audio and Video Overviews, slides, infographics, reports, quizzes, flashcards and mind maps, on your Google AI subscription, the free plan included. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
       "category": "media",
       "tags": [
         "notebooklm",

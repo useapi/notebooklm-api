@@ -12,7 +12,7 @@ Each request carries:
 - the optional Google account email you set in the credentials or in a tool;
 - the content of the tool call: notebook, source, artifact and job ids, questions, instructions, URLs, pasted text, and any file you upload as a source.
 
-useapi.net runs the request on the Google account you connected to it. Your sources, questions and generated content are therefore processed by Google NotebookLM (Gemini Notebook) in that Google account.
+useapi.net runs the request on the Google account you connected to it. Your sources, questions and generated content are therefore processed by Google Gemini Notebook (NotebookLM) in that Google account.
 
 ## What the plugin stores
 
@@ -23,7 +23,7 @@ Files the plugin returns to Dify (for example an Audio Overview `.m4a`) are stor
 ## Data handled by the services the plugin calls
 
 - **useapi.net** receives the requests above and keeps job records for 30 days. How useapi.net collects, uses and shares data is described in its Terms of Service and Privacy Policy: https://useapi.net/docs/legal
-- **Google** processes your notebooks, sources and generated content in your own Google account, under Google's Privacy Policy: https://policies.google.com/privacy
+- **Google** processes your notebooks, sources and generated content in your Google account, under Google's Privacy Policy: https://policies.google.com/privacy
 
 useapi.net is a third-party service. It is not affiliated with, endorsed by or sponsored by Google.
 

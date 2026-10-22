@@ -2,11 +2,11 @@
 
 **Autor:** useapi · **Versão:** 0.1.1 · **Tipo:** ferramenta · **Código-fonte:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contato:** support@useapi.net
 
-Use o Google **NotebookLM**, agora chamado **Gemini Notebook**, em workflows, chatflows e agentes do Dify. Crie notebooks, adicione páginas web, vídeos do YouTube, texto, arquivos do Google Drive e uploads como fontes, faça perguntas respondidas com citações, rode o Deep Research e gere todos os resultados do Studio: **Visões gerais em áudio** (o podcast do NotebookLM), **Visões gerais em vídeo**, apresentações de slides, infográficos, relatórios, tabelas de dados, testes, cartões de estudo e mapas mentais. Áudio, vídeo, slides e imagens voltam como arquivos do Dify.
+Use o Google Gemini Notebook, antes chamado NotebookLM, em workflows, chatflows e agentes do Dify. Crie notebooks, adicione páginas web, vídeos do YouTube, texto, arquivos do Google Drive e uploads como fontes, faça perguntas respondidas com citações, rode o Deep Research e gere todos os resultados do Studio: Visões gerais em áudio (o podcast do Gemini Notebook), Visões gerais em vídeo, apresentações de slides, infográficos, relatórios, tabelas de dados, testes, cartões de estudo e mapas mentais. Áudio, vídeo, slides e imagens voltam como arquivos do Dify.
 
-> Este plugin usa a [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) da useapi.net, uma API de terceiros. Ela não é feita pelo Google, nem afiliada ou endossada por ele. É preciso ter uma assinatura da useapi.net (US$ 15/mês, cobre todas as APIs da useapi.net) e sua própria conta Google. A geração usa o plano do NotebookLM dessa conta Google, inclusive o gratuito, sem cobrança por chamada da useapi.net.
+> Este plugin usa a [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) da useapi.net, uma API de terceiros. Ela não é feita pelo Google, nem afiliada ou endossada por ele. É preciso ter uma assinatura da useapi.net (US$ 15/mês, cobre todas as APIs da useapi.net) e uma conta Google. A geração usa a assinatura Google AI dessa conta, inclusive o plano gratuito, sem cobrança por chamada da useapi.net.
 
-O Google não oferece API do NotebookLM para contas Google comuns; a única, a Gemini Notebook Enterprise API, exige licenças Enterprise em um projeto do Google Cloud. Este plugin funciona com uma conta Google comum.
+O Google não oferece API do Gemini Notebook para contas Google comuns; a única, a Gemini Notebook Enterprise API, exige licenças Enterprise em um projeto do Google Cloud. Este plugin funciona com uma conta Google comum.
 
 ## Configuração
 
@@ -58,7 +58,7 @@ Adicione as ferramentas Listar notebooks, Obter notebook, Adicionar fontes, Perg
 ## Espera, limites e erros
 
 - O chat responde em 15 a 30 segundos; Descobrir fontes leva cerca de 15 segundos; Deep Research, 3 a 5 minutos; uma Visão geral em áudio, 3 a 10 minutos; uma Visão geral em vídeo, 10 minutos ou mais. O plugin consulta a cada 15 segundos e, por padrão, espera até 120 segundos por chamada (em workflows, até 540 segundos, abaixo do limite padrão de 600 segundos do Dify para plugins).
-- Cada conta Google tem o próprio limite de uso do NotebookLM, renovado a cada 5 horas, mais um limite semanal. Ver uso da conta mostra o que resta.
+- Cada conta Google tem o próprio limite de uso do Gemini Notebook, renovado a cada 5 horas, mais um limite semanal. Ver uso da conta mostra o que resta.
 - Os erros voltam como mensagens legíveis, por exemplo: token inválido (401), assinatura vencida (402), conta não conectada (404), fontes ainda em processamento (409), conta ocupada ou sem uso disponível, com o horário de renovação (429), conta desconectada pelo Google (596).
 
 ## Privacidade

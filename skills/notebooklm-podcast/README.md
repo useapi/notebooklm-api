@@ -1,8 +1,8 @@
 # Gemini Notebook (NotebookLM) podcast: an agent skill
 
-An [Agent Skill](https://agentskills.io) that lets Claude Code, Codex and other coding agents turn web pages, YouTube videos, pasted text and local files (PDF, Word, EPUB, audio...) into a Gemini Notebook **Audio Overview** podcast (`.m4a`) or a **Video Overview** (`.mp4`). Ask your agent "make a Gemini Notebook podcast from these three articles" and it runs the scripts in this folder.
+An [Agent Skill](https://agentskills.io) that lets Claude Code, Codex and other coding agents turn web pages, YouTube videos, pasted text and local files (PDF, Word, EPUB, audio...) into a Gemini Notebook Audio Overview podcast (`.m4a`) or a Video Overview (`.mp4`). Ask your agent "make a Gemini Notebook podcast from these three articles" and it runs the scripts in this folder.
 
-It calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that runs on your own Google Gemini Notebook account (Gemini Notebook was called NotebookLM until July 2026).
+It calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill), a third-party REST API that runs Gemini Notebook (formerly NotebookLM) on your Google account, with your [Google AI subscription](https://gemini.google/subscriptions/): Free, Plus $4.99, Pro $19.99, Ultra $99.99 or Ultra $199.99 a month (as of October 2026).
 
 ## Install
 
@@ -32,7 +32,7 @@ export USEAPI_EMAIL=you@gmail.com       # optional: which connected Google accou
 You need:
 
 1. A useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill). One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill) covers every useapi.net API.
-2. A Google account connected with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill). Generation runs on that account's own Gemini Notebook plan, the free one included.
+2. A Google account connected with the [Gemini Notebook setup](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=skill&utm_campaign=notebooklm-skill). Generation uses that account's Google AI subscription, the free plan included.
 3. `bash`, `curl` and [`jq`](https://jqlang.org/download/).
 
 ## Use it without an agent

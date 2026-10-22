@@ -1,6 +1,6 @@
 # n8n workflows for the Gemini Notebook API (NotebookLM API)
 
-Ready-to-import [n8n](https://n8n.io) workflows that turn links or an RSS feed into a Gemini Notebook **Audio Overview** (the two-host podcast). All of them use only core n8n nodes, with no community nodes. Tested on self-hosted n8n 2.41.
+Ready-to-import [n8n](https://n8n.io) workflows that turn links or an RSS feed into a Gemini Notebook Audio Overview (the two-host podcast). All of them use only core n8n nodes, with no community nodes. Tested on self-hosted n8n 2.41.
 
 | Workflow | What it does |
 |---|---|
@@ -8,11 +8,11 @@ Ready-to-import [n8n](https://n8n.io) workflows that turn links or an RSS feed i
 | [`notebooklm-podcast.json`](./notebooklm-podcast.json) | A form: paste web pages and YouTube links, pick a format and a length; the `.m4a` ends up as binary data in n8n for the next node (the browser gets a confirmation page, not the file) |
 | [`notebooklm-rss-podcast.json`](./notebooklm-rss-podcast.json) | Every Monday, the newest posts of an RSS feed become one podcast episode |
 
-📖 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into Gemini Notebook (NotebookLM) Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into Gemini Notebook (NotebookLM) Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
-The two smaller files are the minimal versions of the same pipeline, for building your own flow. The app is published on n8n.io: [NotebookLM Podcast App](https://n8n.io/workflows/20476).
+The two smaller files are the minimal versions of the same pipeline, for building your own flow. The app is published on n8n.io: [Create podcast-style audio overviews from links and RSS with Gemini Notebook](https://n8n.io/workflows/20476).
 
-## Podcast App (form + weekly RSS)
+## Podcast App (form and weekly RSS)
 
 [`notebooklm-podcast-app.json`](./notebooklm-podcast-app.json) is the complete version: one workflow, two ways in.
 
@@ -55,4 +55,4 @@ A short brief takes about 3 to 10 minutes. Add a Google Drive, S3, Telegram or p
 - **Job failed**: the workflow stops with the error Google returned.
 - A source that ends as `error` (for example a YouTube video without captions) is skipped; the episode uses the rest.
 
-One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) covers every useapi.net API. Generation runs on your own Google account's Gemini Notebook plan.
+One [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) covers every useapi.net API. Generation uses the Gemini Notebook usage of your Google AI subscription, the free plan included.

@@ -1,5 +1,5 @@
 """
-Turn web pages and YouTube videos into a NotebookLM Audio Overview (the "podcast") with the Gemini Notebook API by useapi.net.
+Turn web pages and YouTube videos into a Gemini Notebook (NotebookLM) Audio Overview (the "podcast") with the Gemini Notebook API by useapi.net.
 For every entry in prompts.json: create a notebook, add the URLs as sources, wait until Google has processed them,
 generate an Audio Overview (POST /artifacts, type "audio", async), poll GET /jobs, and download the .m4a.
 Docs: https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts

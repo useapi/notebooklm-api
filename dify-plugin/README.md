@@ -2,9 +2,9 @@
 
 **Author:** [useapi](https://useapi.net/?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) · **Version:** 0.1.1 · **Type:** tool · **Source:** https://github.com/useapi/notebooklm-api/tree/main/dify-plugin · **Contact:** support@useapi.net
 
-Use Google **Gemini Notebook**, formerly **NotebookLM**, from Dify [workflows, chatflows](https://docs.dify.ai/en/cloud/use-dify/build/workflow-chatflow) and [agents](https://docs.dify.ai/en/cloud/use-dify/build/new-agent/overview). Create notebooks, add web pages, YouTube videos, text, Google Drive files and uploads as sources, ask questions answered with citations, run Deep Research, and generate every Studio output: **Audio Overviews** (the Gemini Notebook podcast), **Video Overviews**, slide decks, infographics, reports, data tables, quizzes, flashcards and mind maps. Audio, video, slides and images come back as Dify files.
+Use Google Gemini Notebook, formerly NotebookLM, from Dify [workflows, chatflows](https://docs.dify.ai/en/cloud/use-dify/build/workflow-chatflow) and [agents](https://docs.dify.ai/en/cloud/use-dify/build/new-agent/overview). Create notebooks, add web pages, YouTube videos, text, Google Drive files and uploads as sources, ask questions answered with citations, run Deep Research, and generate every Studio output: Audio Overviews (the Gemini Notebook podcast), Video Overviews, slide decks, infographics, reports, data tables, quizzes, flashcards and mind maps. Audio, video, slides and images come back as Dify files.
 
-> This plugin calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) by useapi.net, a third-party API. It is not made by, affiliated with or endorsed by Google. It needs a useapi.net subscription ($15/month, covers every useapi.net API) and your own Google account. Generation runs on that Google account's Gemini Notebook plan, the free plan included, with no per-call charge from useapi.net.
+> This plugin calls the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=marketplace.dify.ai&utm_medium=referral&utm_campaign=dify-plugin) by useapi.net, a third-party API. It is not made by, affiliated with or endorsed by Google. It needs a useapi.net subscription ($15/month, covers every useapi.net API) and a Google account. Generation runs on that account's Google AI subscription, the free plan included, with no per-call charge from useapi.net.
 
 Google offers no Gemini Notebook API for regular Google accounts; its only one, the Gemini Notebook Enterprise API, needs Enterprise licenses in a Google Cloud project. This plugin works with a regular Google account.
 
@@ -37,15 +37,15 @@ Every generation tool takes either a `notebook` id, or `urls` and/or `text` to c
 | Tool | What you get | Options |
 |---|---|---|
 | `generate_audio_overview` | Podcast `.m4a` | format `deep_dive`, `brief`, `critique`, `debate`; length `short`, `default`, `long`; language; instructions |
-| `generate_video_overview` | Video `.mp4` | format `explainer`, `brief`, `cinematic`, `short`; style `auto`, `classic`, `whiteboard`, `heritage`, `paper_craft`, `watercolor`, `anime`, `retro_print`, `kawaii`, `custom` + style prompt; language; instructions |
-| `generate_slide_deck` | `.pdf` + `.pptx`, slide text | format `detailed`, `presenter`; length; language; instructions |
-| `generate_infographic` | `.png` + text | 11 styles; orientation `landscape`, `portrait`, `square`; detail `concise`, `standard`, `detailed` |
+| `generate_video_overview` | Video `.mp4` | format `explainer`, `brief`, `cinematic`, `short`; style `auto`, `classic`, `whiteboard`, `heritage`, `paper_craft`, `watercolor`, `anime`, `retro_print`, `kawaii`, `custom` with a style prompt; language; instructions |
+| `generate_slide_deck` | `.pdf` and `.pptx`, slide text | format `detailed`, `presenter`; length; language; instructions |
+| `generate_infographic` | `.png` and text | 11 styles; orientation `landscape`, `portrait`, `square`; detail `concise`, `standard`, `detailed` |
 | `generate_report` | Markdown | format `briefing`, `study_guide`, `blog_post`, `custom` (instructions become the prompt) |
-| `generate_interactive_report` | Text + suggested items | language; instructions |
-| `generate_data_table` | Markdown table + rows | language; instructions (which columns) |
-| `generate_quiz` | Questions with marked answers + JSON | quantity `fewer`, `standard`, `more`; difficulty `easy`, `medium`, `hard` |
-| `generate_flashcards` | Cards + JSON | quantity; difficulty |
-| `generate_mind_map` | Outline + JSON tree | instructions |
+| `generate_interactive_report` | Text and suggested items | language; instructions |
+| `generate_data_table` | Markdown table and rows | language; instructions (which columns) |
+| `generate_quiz` | Questions with marked answers, and JSON | quantity `fewer`, `standard`, `more`; difficulty `easy`, `medium`, `hard` |
+| `generate_flashcards` | Cards and JSON | quantity; difficulty |
+| `generate_mind_map` | Outline and JSON tree | instructions |
 | `generate_suggested_item` | An item an interactive report suggested | per-type options |
 | `retry_artifact` | Re-runs a failed generation | |
 | `revise_slide` | Changes one slide of a deck with a prompt | slide number, prompt |

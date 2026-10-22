@@ -1,12 +1,12 @@
 /*
-Run NotebookLM Deep Research with the Gemini Notebook API by useapi.net and save the report as Markdown.
+Run Gemini Notebook (NotebookLM) Deep Research with the Gemini Notebook API by useapi.net and save the report as Markdown.
 For every entry in prompts.json: create a notebook, start a Deep Research run (POST /research, type "deep", async),
 poll GET /jobs, then save the report (.md) and the sources Google read, marking which ones the report cites (.json).
 A research run does not change the notebook; import what you want to keep with POST /research/import.
 Docs: https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-research
 
 Usage: node research.mjs <API_TOKEN> [EMAIL] [PROMPTS_FILE]
-Requires Node.js 21+ (built-in fetch). No dependencies.
+Requires Node.js 21 or newer (built-in fetch). No dependencies.
 */
 import fs from 'node:fs/promises'
 

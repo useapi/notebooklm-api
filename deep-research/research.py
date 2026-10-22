@@ -1,5 +1,5 @@
 """
-Run NotebookLM Deep Research with the Gemini Notebook API by useapi.net and save the report as Markdown.
+Run Gemini Notebook (NotebookLM) Deep Research with the Gemini Notebook API by useapi.net and save the report as Markdown.
 For every entry in prompts.json: create a notebook, start a Deep Research run (POST /research, type "deep", async),
 poll GET /jobs, then save the report (.md) and the sources Google read, marking which ones the report cites (.json).
 Docs: https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-research
