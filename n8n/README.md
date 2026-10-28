@@ -10,7 +10,9 @@ Ready-to-import [n8n](https://n8n.io) workflows that turn links or an RSS feed i
 
 Full walkthrough: [How to Turn Web Pages, YouTube Videos and RSS Feeds into Gemini Notebook (NotebookLM) Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
-The two smaller files are the minimal versions of the same pipeline, for building your own flow. The app is published on n8n.io: [Create podcast-style audio overviews from links and RSS with Gemini Notebook](https://n8n.io/workflows/20476).
+Import any of them in n8n with **Workflows → Import from File**. The two smaller files are the minimal versions of the same pipeline, for building your own flow.
+
+Also on n8n.io: [Create podcast-style audio overviews from links and RSS with Gemini Notebook](https://n8n.io/workflows/20476) (the full app)
 
 ## Podcast App (form and weekly RSS)
 
