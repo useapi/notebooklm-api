@@ -1,5 +1,7 @@
 # Gemini Notebook API (NotebookLM API) examples
 
+English · [中文](#中文说明) · [日本語](#日本語の説明) · [Português](#sobre-este-repositório) · [Tiếng Việt](#về-repo-này) · [Bahasa Indonesia](#tentang-repo-ini) · [ไทย](#เกี่ยวกับ-repo-นี้)
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/useapi/notebooklm-api/blob/main/notebooks/notebooklm_podcast.ipynb)
 
 Runnable Node.js, Python and bash examples, an agent skill, a Colab notebook and n8n workflows for the Gemini Notebook API (NotebookLM API): the [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), a third-party REST API that drives Google Gemini Notebook (formerly NotebookLM) on your [Google AI subscription](https://gemini.google/subscriptions/): Free, Plus $4.99, Pro $19.99, Ultra $99.99 or Ultra $199.99 a month (as of October 2026). Create notebooks, add web pages, YouTube videos, Drive files and uploads as sources, chat with citations, run Deep Research, and generate Audio Overviews (the Gemini Notebook podcast), Video Overviews, slide decks, infographics, reports, quizzes, flashcards and mind maps.
@@ -126,6 +128,78 @@ The labels are in English, Simplified Chinese, Japanese and Brazilian Portuguese
 - **How many podcasts can I make?** Through useapi.net, as many as your connected Google accounts' usage allows: each account's Gemini Notebook usage refills every 5 hours up to a weekly limit. Connect more Google accounts with [POST /accounts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-accounts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), 3 per useapi.net subscription and up to 100 in total, and new jobs go automatically to an account that is healthy and still has usage left.
 - **Can I generate Gemini Notebook (NotebookLM) podcasts with the API?** Through useapi.net, yes: podcasts (Audio Overviews) and Video Overviews too, which Google's Enterprise API doesn't offer (as of October 2026). Send links or text to [POST /artifacts](https://useapi.net/docs/api-gemini-notebook-v1/post-gemini-notebook-artifacts?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) and download the podcast as `.m4a`, a Video Overview as `.mp4`, slides as `.pdf` and `.pptx` or an infographic as `.png`. The [`podcast/`](./podcast) example does it in one run.
 - More answers: [Gemini Notebook API questions](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api#questions).
+
+## 中文说明
+
+这是 [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) 的 Gemini Notebook API（NotebookLM API）示例代码（Node.js、Python 和 bash），通过第三方 REST API 在你自己的 Google 账号上创建笔记本、添加网页和 YouTube 来源、带引用对话、运行 Deep Research，并生成 Audio Overview 播客、Video Overview、幻灯片和信息图。
+
+- 使用你的 Google AI 订阅（免费版、Plus $4.99、Pro $19.99、Ultra $99.99 或 Ultra $199.99 每月），免费 Google 账号也能用。
+- 无需 Google Cloud 项目或 API Key。Google 只为 Enterprise 许可证提供 Gemini Notebook API，普通 Google 账号用不了。
+- 账号只需绑定一次：用 Google 登录即可，无需复制 Cookie，会话由我们保持登录。
+- 不按次收费：播客和回答用的是你 Google 套餐自带的用量，每 5 小时刷新一次。按 Google 的估算，一个满额 5 小时窗口可启动 2 个（免费版）、9 个（Pro）或 181 个（Ultra $199.99）Audio Overview（2026 年 10 月）。useapi.net 每月 15 美元，含所有 API，每个订阅可绑定 3 个 Google 账号，总数最多 100 个。
+- `podcast/` 把网页和 YouTube 视频生成播客并下载 `.m4a`，`deep-research/` 把 Deep Research 报告连同引用来源保存为 Markdown，另有 agent skill、Colab 笔记本、n8n 工作流和 Dify 插件。
+
+中文教程（中文播客、PDF、信息图，含 curl 示例）：[如何用 Gemini Notebook API（NotebookLM API）把网页、PDF 和 YouTube 视频变成中文播客](https://useapi.net/docs/articles/gemini-notebook-api-zh?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。完整文档：[Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。
+
+## 日本語の説明
+
+[useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) の Gemini Notebook API（NotebookLM API）のサンプルです。Google Gemini Notebook（旧 NotebookLM）を動かすサードパーティの REST API で、ノートブック、ソース、引用付きのチャット、Deep Research、音声解説（ポッドキャスト）、動画解説、スライド、インフォグラフィック、レポートを扱えます。
+
+- お使いの Google AI のプランで動きます：無料、Plus $4.99、Pro $19.99、Ultra $99.99、Ultra $199.99（月額、2026年10月時点）。無料プランでも使えます。
+- Google Cloud プロジェクトも Gemini API キーも不要です。Google は通常のアカウントに Gemini Notebook の API キーを発行していないので、useapi.net のトークンで API を呼び出します。
+- Google アカウントは、自動化されたブラウザーの手順で接続します。Google に一度ログインするだけで、Cookie をコピーする必要はありません。
+- コスト：useapi.net は月 $15 で、すべての API と、サブスクリプションごとに3つの Google アカウントが含まれ、ポッドキャストごとの料金はかかりません。Google 側の利用分はお使いのプランから使われます。Google の見積もりでは、5時間の枠1つで開始できる音声解説は、無料プランで約2本、Google AI Pro で9本です（2026年10月時点）。
+- サンプルでは、Web ページや YouTube 動画を `.m4a` のポッドキャストにし（`language: "ja"` で日本語にも）、Deep Research を実行してレポートを Markdown で保存します。エージェントスキル、Colab ノートブック、n8n のワークフロー、Dify のプラグインも入っています。
+
+日本語の記事：[Gemini Notebook API（NotebookLM API）で Web ページ、PDF、YouTube 動画を日本語のポッドキャストにする方法](https://useapi.net/docs/articles/gemini-notebook-bash-ja?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。ドキュメント全体：[Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。
+
+## Sobre este repositório
+
+Exemplos da Gemini Notebook API (NotebookLM API) da [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), uma API REST de terceiros que controla o Google Gemini Notebook (antigo NotebookLM): notebooks, fontes, chat com citações, Deep Research, e Audio Overviews (podcasts), Video Overviews, slides, infográficos e relatórios.
+
+- Roda na sua assinatura do Google AI: gratuita, Plus $4,99, Pro $19,99, Ultra $99,99 ou Ultra $199,99 por mês (outubro de 2026), e o plano gratuito funciona.
+- Sem projeto no Google Cloud e sem chave da Gemini API: o Google não emite chave da Gemini Notebook API para contas comuns, e você chama a API com o token da useapi.net.
+- A conta Google é conectada por um fluxo automatizado no navegador: você entra no Google uma vez, sem copiar cookies.
+- Custo: a useapi.net custa $15 por mês, com todas as APIs e 3 contas Google por assinatura, sem cobrança por podcast. O uso do lado do Google vem do seu plano: pelas estimativas do Google, uma janela de 5 horas inicia cerca de 2 Audio Overviews no plano gratuito e 9 no Google AI Pro (outubro de 2026).
+- Os exemplos transformam páginas web e vídeos do YouTube em um podcast `.m4a` (também em português, com `language: "pt_BR"`), rodam Deep Research e salvam o relatório em Markdown, e incluem uma skill para agentes, um notebook do Colab, workflows n8n e um plugin para o Dify.
+
+Artigo em português: [Como usar a Gemini Notebook API (NotebookLM API) para transformar páginas web, PDFs e vídeos do YouTube em podcasts em português](https://useapi.net/docs/articles/gemini-notebook-bash-pt?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Documentação completa: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
+## Về repo này
+
+Ví dụ cho Gemini Notebook API (NotebookLM API) của [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), một REST API của bên thứ ba điều khiển Google Gemini Notebook (trước đây là NotebookLM): notebook, nguồn, chat có trích dẫn nguồn, Deep Research, cùng Audio Overview (podcast), Video Overview, slide, infographic và báo cáo.
+
+- Chạy trên gói Google AI của bạn: Ultra $199,99, Ultra $99,99, Pro $19,99, Plus $4,99 mỗi tháng hoặc gói miễn phí (tháng 10/2026), và gói miễn phí cũng dùng được.
+- Không cần dự án Google Cloud hay Gemini API key: Google không cấp Gemini Notebook API key cho tài khoản thông thường, và bạn gọi API bằng token của useapi.net.
+- Tài khoản Google được kết nối bằng quy trình trình duyệt tự động: đăng nhập Google một lần, không cần chép cookie.
+- Chi phí: useapi.net giá $15 mỗi tháng, gồm mọi API và 3 tài khoản Google mỗi gói đăng ký, không tính phí theo podcast. Mức dùng phía Google lấy từ gói của bạn: theo ước tính của Google, một khung 5 giờ bắt đầu được khoảng 2 Audio Overview trên gói miễn phí, 9 trên Google AI Pro và 181 trên Ultra $199,99 (tháng 11/2026).
+- Các ví dụ biến trang web và video YouTube thành podcast `.m4a` (chọn ngôn ngữ bằng `language`), chạy Deep Research và lưu báo cáo dạng Markdown, kèm một agent skill, một notebook Colab, workflow n8n và plugin Dify.
+
+Bài viết tiếng Việt: [Cách dùng Gemini Notebook API (NotebookLM API) biến trang web, PDF và video YouTube thành podcast](https://useapi.net/docs/articles/gemini-notebook-bash-vi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Tài liệu đầy đủ: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
+## Tentang repo ini
+
+Ini adalah contoh kode Node.js, Python dan bash untuk Gemini Notebook API (NotebookLM API) dari [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), API pihak ketiga yang menjalankan Google Gemini Notebook (dulu NotebookLM) lewat REST API: notebook, sumber dari web, YouTube, Drive dan file upload, tanya jawab dengan sitasi, Deep Research, Audio Overview (podcast), Video Overview, slide, infografis, laporan, kuis, flashcard dan mind map.
+
+- Berjalan di paket Google AI Anda: Gratis, Plus $4,99, Pro $19,99, Ultra $99,99 atau Ultra $199,99 per bulan (per Oktober 2026), termasuk paket gratis. Podcast bisa dibuat dalam bahasa Indonesia dengan `language: "id"`.
+- Tanpa project Google Cloud dan tanpa Gemini API key. Google hanya menyediakan Enterprise API yang butuh lisensi Enterprise di project Google Cloud dan tidak bisa dipakai akun Google biasa.
+- Akun dihubungkan lewat [setup Gemini Notebook](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api): login ke Google, tanpa menyalin cookie. Hubungkan beberapa akun, dan setiap job baru otomatis diarahkan ke akun yang sehat dan masih punya kuota.
+- Harga: langganan useapi.net $15 per bulan untuk semua API, dengan 3 akun Google per langganan (maksimal 100). Podcast tidak punya harga sendiri: kuota Notebook terisi ulang setiap 5 jam, dan satu jendela 5 jam bisa memulai sekitar 2 Audio Overview di akun gratis, 9 di Google AI Pro dan 181 di Google AI Ultra, menurut perkiraan Google.
+- Contoh di repo: `podcast/` mengubah halaman web dan video YouTube menjadi Audio Overview `.m4a`, `deep-research/` menyimpan laporan Deep Research sebagai Markdown, ditambah notebook Google Colab, workflow n8n, plugin Dify dan agent skill untuk Claude Code dan Codex.
+
+Artikel bahasa Indonesia: [Cara Memakai Gemini Notebook API (NotebookLM API): Ubah Web, PDF dan Video YouTube Menjadi Podcast Berbahasa Indonesia](https://useapi.net/docs/articles/gemini-notebook-bash-id?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Dokumentasi lengkap: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
+## เกี่ยวกับ repo นี้
+
+นี่คือตัวอย่างโค้ด Node.js, Python และ bash สำหรับ Gemini Notebook API (NotebookLM API) ของ [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) ซึ่งเป็น API ของบุคคลที่สาม ใช้สร้างโน้ตบุ๊ก เพิ่มแหล่งข้อมูลจากเว็บและ YouTube แชตพร้อมแหล่งอ้างอิง รัน Deep Research และสร้างพอดแคสต์ Audio Overview, Video Overview, สไลด์ และอินโฟกราฟิก บนบัญชี Google ของคุณเอง
+
+- ใช้แพ็กเกจ Google AI ของคุณ (ฟรี, Plus $4.99, Pro $19.99, Ultra $99.99 หรือ Ultra $199.99 ต่อเดือน) บัญชี Google ฟรีก็ใช้ได้
+- ไม่ต้องมีโปรเจกต์ Google Cloud หรือ API key ส่วน Gemini Notebook API ของ Google เองมีให้เฉพาะไลเซนส์ Enterprise บัญชี Google ทั่วไปใช้ไม่ได้
+- เชื่อมบัญชีครั้งเดียวผ่าน[หน้าตั้งค่า](https://useapi.net/docs/start-here/setup-gemini-notebook?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) แค่ล็อกอิน Google ไม่ต้องคัดลอก cookie และเราดูแลให้เซสชันล็อกอินอยู่เสมอ
+- ไม่คิดเงินต่อชิ้น: พอดแคสต์และคำตอบใช้โควตาที่มากับแพ็กเกจ Google ของคุณ ซึ่งรีเฟรชทุก 5 ชั่วโมง ตามตัวเลขประมาณของ Google รอบ 5 ชั่วโมงเต็มหนึ่งรอบเริ่ม Audio Overview ได้ 2 รายการ (ฟรี) 9 รายการ (Pro) หรือ 181 รายการ (Ultra $199.99) (ข้อมูล ณ ตุลาคม 2026) ค่าบริการ useapi.net คือ $15 ต่อเดือน รวมทุก API
+- ตัวอย่างใน repo: `podcast/` เปลี่ยนหน้าเว็บและวิดีโอ YouTube เป็นพอดแคสต์แล้วดาวน์โหลดไฟล์ `.m4a` `deep-research/` บันทึกรายงาน Deep Research พร้อมแหล่งอ้างอิงเป็น Markdown และยังมี agent skill, โน้ตบุ๊ก Colab, workflow ของ n8n และปลั๊กอิน Dify
+
+บทความภาษาไทย: [วิธีใช้ Gemini Notebook API (NotebookLM API) เปลี่ยนเว็บ PDF และวิดีโอ YouTube เป็นพอดแคสต์ภาษาไทย](https://useapi.net/docs/articles/gemini-notebook-bash-th?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) เอกสารฉบับเต็ม: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
 ## License
 
