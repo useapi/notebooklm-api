@@ -207,6 +207,6 @@ The example code in this repository is released under the [MIT License](./LICENS
 
 ## About useapi.net
 
-[useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) provides third-party REST APIs for AI services that run on your subscriptions to them: Google Flow, Google Vids, Muse, Gemini Notebook (NotebookLM), Dreamina, Kling, PixVerse, Mureka, Flow Music, MiniMax, Runway and more. See the [model matrix](https://useapi.net/model-matrix?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+[useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) provides third-party REST APIs for AI services that run on your subscriptions to them: Google Flow, Muse, ACE Music, Google Vids, Gemini Notebook (NotebookLM), Dreamina, Kling, PixVerse, Mureka, Flow Music, MiniMax, Runway and more. See the [model matrix](https://useapi.net/model-matrix?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 
 Visit our [Discord Server](https://discord.gg/w28uK3cnmF) or [Telegram Channel](https://t.me/use_api) for any support questions and concerns.
