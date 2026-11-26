@@ -120,6 +120,19 @@ The labels are in English, Simplified Chinese, Japanese and Brazilian Portuguese
 - [How to Turn Web Pages, YouTube Videos and RSS Feeds into Gemini Notebook (NotebookLM) Podcasts with n8n](https://useapi.net/docs/articles/notebooklm-n8n-podcast?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 - YouTube: [NotebookLM has no API. Now it does: podcasts, video, slides from one REST call](https://www.youtube.com/shorts/ISOQAabo0b0)
 
+## One Google AI plan, four APIs
+
+The same Google account and Google AI plan (Plus, Pro or Ultra) run four useapi.net APIs. Each one spends its own allowance (Flow credits, Vids seconds, Notebook usage, Flow Music credits), so none takes from another, and one useapi.net subscription covers all four.
+
+| API | What it makes | Examples | Docs |
+|---|---|---|---|
+| Google Flow | Veo 3.1 and Omni 1.2 Flash video, Nano Banana images, Google Flow Agent chat | [useapi/google-flow-api](https://github.com/useapi/google-flow-api) | [Google Flow API](https://useapi.net/docs/api-google-flow-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) |
+| Google Vids | Omni 1.2 Flash video and voiced AI avatars, from Vids' own monthly allowance, no captcha | [useapi/google-vids-api](https://github.com/useapi/google-vids-api) | [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) |
+| **Gemini Notebook (NotebookLM)** | Podcasts, video overviews and Deep Research from web pages, PDFs and YouTube | this repo | [Gemini Notebook (NotebookLM) API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) |
+| Google Flow Music | Full songs with Lyria 3.5 and Lyria 3 Pro | [useapi/flowmusic-api](https://github.com/useapi/flowmusic-api) | [Google Flow Music API](https://useapi.net/docs/api-flowmusic-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) |
+
+What each plan makes in a month across all four: [Can You Use Your Google AI Subscription Through an API?](https://useapi.net/docs/articles/google-ai-subscription-api?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api#one-account)
+
 ## Common questions
 
 <!-- Official API figures in these answers, re-read 2026-10-20 (useapi.net/docs/api-gemini-notebook-v1 sources): https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks (Preview, Enterprise licenses in a Google Cloud project: notebooks, sources, sharing and Audio Overviews only). Plans: https://gemini.google/subscriptions/ (Free, Plus $4.99, Pro $19.99, Ultra $99.99 or $199.99) read 2026-10-20. Google publishes no per-plan usage figures beyond notebook and source limits (overview Pricing). -->
