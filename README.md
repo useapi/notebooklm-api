@@ -156,6 +156,8 @@ What each plan makes in a month across all four: [Can You Use Your Google AI Sub
 
 中文教程（中文播客、PDF、信息图，含 curl 示例）：[如何用 Gemini Notebook API（NotebookLM API）把网页、PDF 和 YouTube 视频变成中文播客](https://useapi.net/docs/articles/gemini-notebook-api-zh?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。完整文档：[Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。
 
+Gemini Notebook 现在能用吗？查看[状态页面](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。
+
 ## 日本語の説明
 
 [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) の Gemini Notebook API（NotebookLM API）のサンプルです。Google Gemini Notebook（旧 NotebookLM）を動かすサードパーティの REST API で、ノートブック、ソース、引用付きのチャット、Deep Research、音声解説（ポッドキャスト）、動画解説、スライド、インフォグラフィック、レポートを扱えます。
@@ -167,6 +169,8 @@ What each plan makes in a month across all four: [Can You Use Your Google AI Sub
 - サンプルでは、Web ページや YouTube 動画を `.m4a` のポッドキャストにし（`language: "ja"` で日本語にも）、Deep Research を実行してレポートを Markdown で保存します。エージェントスキル、Colab ノートブック、n8n のワークフロー、Dify のプラグインも入っています。
 
 日本語の記事：[Gemini Notebook API（NotebookLM API）で Web ページ、PDF、YouTube 動画を日本語のポッドキャストにする方法](https://useapi.net/docs/articles/gemini-notebook-bash-ja?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。ドキュメント全体：[Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)。
+
+Gemini Notebook は今動いていますか？[ステータスページ](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)をご覧ください。
 
 ## Sobre este repositório
 
@@ -180,6 +184,8 @@ Exemplos da Gemini Notebook API (NotebookLM API) da [useapi.net](https://useapi.
 
 Artigo em português: [Como usar a Gemini Notebook API (NotebookLM API) para transformar páginas web, PDFs e vídeos do YouTube em podcasts em português](https://useapi.net/docs/articles/gemini-notebook-bash-pt?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Documentação completa: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 
+O Gemini Notebook está funcionando agora? Veja a [página de status](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
 ## Về repo này
 
 Ví dụ cho Gemini Notebook API (NotebookLM API) của [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api), một REST API của bên thứ ba điều khiển Google Gemini Notebook (trước đây là NotebookLM): notebook, nguồn, chat có trích dẫn nguồn, Deep Research, cùng Audio Overview (podcast), Video Overview, slide, infographic và báo cáo.
@@ -191,6 +197,8 @@ Ví dụ cho Gemini Notebook API (NotebookLM API) của [useapi.net](https://use
 - Các ví dụ biến trang web và video YouTube thành podcast `.m4a` (chọn ngôn ngữ bằng `language`), chạy Deep Research và lưu báo cáo dạng Markdown, kèm một agent skill, một notebook Colab, workflow n8n và plugin Dify.
 
 Bài viết tiếng Việt: [Cách dùng Gemini Notebook API (NotebookLM API) biến trang web, PDF và video YouTube thành podcast](https://useapi.net/docs/articles/gemini-notebook-bash-vi?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Tài liệu đầy đủ: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
+Gemini Notebook hiện có đang hoạt động không? Xem [trang trạng thái](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 
 ## Tentang repo ini
 
@@ -204,6 +212,8 @@ Ini adalah contoh kode Node.js, Python dan bash untuk Gemini Notebook API (Noteb
 
 Artikel bahasa Indonesia: [Cara Memakai Gemini Notebook API (NotebookLM API): Ubah Web, PDF dan Video YouTube Menjadi Podcast Berbahasa Indonesia](https://useapi.net/docs/articles/gemini-notebook-bash-id?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api). Dokumentasi lengkap: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 
+Apakah Gemini Notebook sedang berfungsi sekarang? Lihat [halaman status](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
 ## เกี่ยวกับ repo นี้
 
 นี่คือตัวอย่างโค้ด Node.js, Python และ bash สำหรับ Gemini Notebook API (NotebookLM API) ของ [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) ซึ่งเป็น API ของบุคคลที่สาม ใช้สร้างโน้ตบุ๊ก เพิ่มแหล่งข้อมูลจากเว็บและ YouTube แชตพร้อมแหล่งอ้างอิง รัน Deep Research และสร้างพอดแคสต์ Audio Overview, Video Overview, สไลด์ และอินโฟกราฟิก บนบัญชี Google ของคุณเอง
@@ -216,6 +226,8 @@ Artikel bahasa Indonesia: [Cara Memakai Gemini Notebook API (NotebookLM API): Ub
 
 บทความภาษาไทย: [วิธีใช้ Gemini Notebook API (NotebookLM API) เปลี่ยนเว็บ PDF และวิดีโอ YouTube เป็นพอดแคสต์ภาษาไทย](https://useapi.net/docs/articles/gemini-notebook-bash-th?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) เอกสารฉบับเต็ม: [Gemini Notebook API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
 
+Gemini Notebook ใช้งานได้ตอนนี้ไหม ดู[หน้าสถานะ](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api)
+
 ## License
 
 The example code in this repository is released under the [MIT License](./LICENSE). It covers the example scripts only, not the useapi.net service or API.
@@ -223,5 +235,7 @@ The example code in this repository is released under the [MIT License](./LICENS
 ## About useapi.net
 
 [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api) provides third-party REST APIs for AI services that run on your subscriptions to them: Google Flow, Muse, ACE Music, Google Vids, Gemini Notebook (NotebookLM), Dreamina, Kling, PixVerse, Mureka, Flow Music, MiniMax, Runway and more. See the [model matrix](https://useapi.net/model-matrix?utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
+
+Is Gemini Notebook working right now? See the [status page](https://useapi.net/status?api=gemini-notebook&utm_source=github.com&utm_medium=referral&utm_campaign=notebooklm-api).
 
 Visit our [Discord Server](https://discord.gg/w28uK3cnmF) or [Telegram Channel](https://t.me/use_api) for any support questions and concerns.
